@@ -1,6 +1,6 @@
 {
   "name": "sora3",
-  "version": "3.0.5",
+  "version": "3.0.7",
   "description": "install template is easy",
   "main": "index.js",
   "bin": "./index.js",
@@ -8,8 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "SoRa",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
     "inquirer": "^9.1.4"

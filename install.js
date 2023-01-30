@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import { execSync } from 'child_process';
 import inquirer from 'inquirer'
+import Logo from "./load/LOgo/Logo.js";
 import SolidJS from "./load/SolidJS.js";
 
 function install(Para , name){
@@ -22,38 +23,34 @@ function install(Para , name){
     function CloneGit(gitLink){
         const checkOut = runCommand(gitLink);
         if(!checkOut) process.exit(-1)
-        console.log('')
-        console.log(chalk.bgGreen('       Successfully install!!       '))
-        console.log(chalk.bgBlue('          Hope U Enjoyed!!          '))
-        console.log(chalk.green('------------------------------------'))
-        console.log(chalk.red('------------------------------------'))
-        console.log(' =====      ===    //==\\\\ ||====')
-        console.log('  ||  \\\\  ||   ||  ||     ||')
-        console.log('  ||   || ||   ||    \\\\   ||====')
-        console.log('  ||  //  ||   ||     ||  ||')
-        console.log(' =====      ===   \\\\==//  ||====')
-        console.log(chalk.red('------------------------------------'))
-        console.log(chalk.green('------------------------------------'))
-        console.log(chalk.gray('My Github : donnie3237'))
-        console.log(chalk.gray('My products : https://dose-products.netlify.app/'))
-        console.log("");
-        const Code = runCommand(`cd ${name} && code .`);
+        Logo();
+        inquirer.prompt([
+          {
+            type:"list",
+            choices:["VScode","Finish"],
+            name:"end",
+            message:"End:"
+          }
+        ]).then(awn=>{
+          if(awn.end === "VScode"){
+            runCommand(`cd ${name} && code .`)
+          }
+        })
     }
     if(Para === chalk.rgb(0,255,255)('SolidTS')){
         console.log('  '+ chalk.bgBlue('      SolidTS      '))
         SolidJS(name)
-        // CloneGit(gitSolid)
       }else if(Para === chalk.rgb(0,255,127)('ElectronJS')){
-        console.log("installing....... [ElectronJS]")
+        console.log('  '+ chalk.bgRed('      ElectronTS      '))
         CloneGit(gitElectron)
       }else if(Para === chalk.rgb(0,0,255)('ReactTS')){
-        console.log("installing....... [ReactTS]")
+        console.log('  '+ chalk.bgBlueBright('      ReactTS      '))
         CloneGit(gitReact)
       }else if(Para === chalk.yellow('TauriJS')){
-        console.log("installing....... [Tauri]")
+        console.log('  '+ chalk.bgYellow('      TauriTS      '))
         CloneGit(gitTauri)
       }else if(Para === chalk.rgb(0,255,0)('ExpressJS')){
-        console.log("installing....... [ExpressJS]")
+        console.log('  '+ chalk.bgBlue('      ExpressJS      '))
         CloneGit(gitExpress)
       }else{
         console.log("error")
