@@ -1,0 +1,24 @@
+{
+  "name": "sora3",
+  "version": "3.0.5",
+  "description": "install template is easy",
+  "main": "index.js",
+  "bin": "./index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.4"
+  },
+  "files": [
+    "bb.js",
+    "install.js",
+    "load",
+    "readme.md",
+    "licence.md"
+  ]
+}
