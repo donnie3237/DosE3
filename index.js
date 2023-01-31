@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import inquirer from 'inquirer'
 import chalk from 'chalk';
 import install from './install.js';
@@ -11,8 +10,8 @@ const choices = [
   chalk.rgb(0,255,255)('SolidTS'),
   chalk.rgb(0,255,0)('ExpressJS'),
 ];
-inquirer
-  .prompt([
+inquirer.prompt(
+  [
     {type:"input",
     name:"name",
     message:"project name :",
@@ -23,7 +22,5 @@ inquirer
       message: "Select framework of this project :",
       choices
     }
-  ])
-  .then ( answers => {
-    install(answers.framework , answers.name)
-  });
+  ]
+).then ( answers => {install(answers.framework , answers.name)});

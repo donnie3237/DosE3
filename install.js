@@ -1,16 +1,15 @@
 import chalk from "chalk";
 import { execSync } from 'child_process';
 import inquirer from 'inquirer'
+import ExpressJS from "./load/ExpressJS.js";
 import Logo from "./load/LOgo/Logo.js";
+import ReactTS from "./load/ReactJS.js";
 import SolidJS from "./load/SolidJS.js";
 
 function install(Para , name){
     const gitReact = `git clone --depth 1 https://github.com/donnie3237/DosE-WebToDesktopApp ${name}`
     const gitElectron = `git clone --depth 1 https://github.com/donnie3237/DosE-WebToDesktopApp ${name}`
-    const gitTauri = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
-    const gitSolid = `git clone --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
-    const gitExpress = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
-    
+    const gitTauri = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`    
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
@@ -27,7 +26,7 @@ function install(Para , name){
         inquirer.prompt([
           {
             type:"list",
-            choices:["VScode","Finish"],
+            choices:["Finish","VScode"],
             name:"end",
             message:"End:"
           }
@@ -45,13 +44,13 @@ function install(Para , name){
         CloneGit(gitElectron)
       }else if(Para === chalk.rgb(0,0,255)('ReactTS')){
         console.log('  '+ chalk.bgBlueBright('      ReactTS      '))
-        CloneGit(gitReact)
+        ReactTS(name)
       }else if(Para === chalk.yellow('TauriJS')){
         console.log('  '+ chalk.bgYellow('      TauriTS      '))
         CloneGit(gitTauri)
       }else if(Para === chalk.rgb(0,255,0)('ExpressJS')){
         console.log('  '+ chalk.bgBlue('      ExpressJS      '))
-        CloneGit(gitExpress)
+        ExpressJS(name)
       }else{
         console.log("error")
       }
