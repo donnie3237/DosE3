@@ -8,13 +8,13 @@ const choices = [
   chalk.rgb(0,255,127)('ElectronJS'),
   chalk.yellow('TauriJS'),
   chalk.rgb(0,255,255)('SolidTS'),
-  chalk.rgb(0,255,0)('ExpressJS'),
+  chalk.rgb(0,255,0)('ExpressTS'),
 ];
 inquirer.prompt(
   [
     {type:"input",
     name:"name",
-    message:"project name :",
+    message: "project name :",
     default:"dose"}
     ,{
       type: "list",

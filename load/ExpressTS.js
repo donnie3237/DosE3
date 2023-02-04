@@ -3,7 +3,7 @@ import inquirer from 'inquirer'
 import { execSync } from 'child_process';
 import Logo from "./LOgo/Logo.js";
 
-function ExpressJS(name){
+function ExpressTS(name){
     const gitExpress_MongoDB = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     const gitExpress_Pg = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     const runCommand = command => {
@@ -26,12 +26,9 @@ function ExpressJS(name){
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.database}   `))
-        const chosen = awnser.database ;
-        console.log('');
         console.log(chalk.red("Installing.......   "))
-        if(chosen === "MongoDB"){
-            const checkOut = runCommand(gitExpress_MongoDB)
-            if(!checkOut) process.exit(-1)
+        if(awnser.database === "MongoBD"){
+            runCommand(gitExpress_MongoDB)
             Logo();
         inquirer.prompt(
             { 
@@ -46,11 +43,13 @@ function ExpressJS(name){
                     runCommand(`cd ${name} && code .`)
                 }
             })
-        }else if(chosen === "PostgreSQL (not finish)"){
+        }else if(awnser.database === "PostgreSQL (not finish)"){
             console.log(chalk.red("Sorry,We are soon ....."))
+        }else{
+            console.log("error")
         }
         
     })
 }
 
-export default ExpressJS ;
+export default ExpressTS ;

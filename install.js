@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { execSync } from 'child_process';
 import inquirer from 'inquirer'
-import ExpressJS from "./load/ExpressJS.js";
+import ExpressTS from "./load/ExpressTS.js";
 import Logo from "./load/LOgo/Logo.js";
 import ReactTS from "./load/ReactJS.js";
 import SolidJS from "./load/SolidJS.js";
@@ -48,9 +48,9 @@ function install(Para , name){
       }else if(Para === chalk.yellow('TauriJS')){
         console.log('  '+ chalk.bgYellow('      TauriTS      '))
         CloneGit(gitTauri)
-      }else if(Para === chalk.rgb(0,255,0)('ExpressJS')){
-        console.log('  '+ chalk.bgBlue('      ExpressJS      '))
-        ExpressJS(name)
+      }else if(Para === chalk.rgb(0,255,0)('ExpressTS')){
+        console.log('  '+ chalk.bgBlue('      ExpressTS      '))
+        ExpressTS(name)
       }else{
         console.log("error")
       }
