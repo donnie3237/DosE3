@@ -5,7 +5,7 @@ import Logo from "./LOgo/Logo.js";
 
 function ReactTS(name){
     const gitReact_Basic = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
-    const gitReact_Redux = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
+    const gitReact_Redux = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name} > /dev/null`
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
