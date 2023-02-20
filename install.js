@@ -5,11 +5,11 @@ import ExpressTS from "./load/ExpressTS.js";
 import Logo from "./load/LOgo/Logo.js";
 import ReactTS from "./load/ReactJS.js";
 import SolidJS from "./load/SolidJS.js";
+import TR from "./load/TR.js";
 
 function install(Para , name){
-    const gitReact = `git clone --depth 1 https://github.com/donnie3237/DosE-WebToDesktopApp ${name}`
     const gitElectron = `git clone --depth 1 https://github.com/donnie3237/DosE-WebToDesktopApp ${name}`
-    const gitTauri = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`    
+        
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
@@ -47,7 +47,7 @@ function install(Para , name){
         ReactTS(name)
       }else if(Para === chalk.yellow('TauriJS')){
         console.log('  '+ chalk.bgYellow('      TauriTS      '))
-        CloneGit(gitTauri)
+        TR(name)
       }else if(Para === chalk.rgb(0,255,0)('ExpressTS')){
         console.log('  '+ chalk.bgBlue('      ExpressTS      '))
         ExpressTS(name)

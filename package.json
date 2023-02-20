@@ -1,9 +1,12 @@
 {
   "name": "dose3",
-  "version": "1.0.0-beta",
+  "version": "1.0.5-beta",
   "description": "install template is easy",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": {
+    "dose": "./index.js",
+    "sora": "./sora.js"
+  },
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

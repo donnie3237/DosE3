@@ -4,8 +4,8 @@ import { execSync } from 'child_process';
 import Logo from "./LOgo/Logo.js";
 
 function ReactTS(name){
-    const gitReact_Basic = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
-    const gitReact_Redux = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name} > /dev/null`
+    const gitReact_Basic = `git clone --depth 1 https://github.com/donnie3237/React-template.git ${name}`
+    const gitReact_Redux = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
@@ -21,17 +21,17 @@ function ReactTS(name){
           name: "tool",
           message: "Select tools :",
           choices : [
-            "Basic (not finish)",
-            "With redux (not finish)"]
+            "Basic",
+            "With Server Side Rendering (not finish)"]
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.tool}   `))
         const chosen = awnser.tool ;
         console.log('');
         console.log(chalk.red("Installing.......   "))
-        if(chosen === "Basic (not finish)"){
-            console.log(chalk.red("Sorry,We are soon ....."))
-        }else if(chosen === "With redux (not finish)"){
+        if(chosen === "Basic"){
+            runCommand(gitReact_Basic)
+        }else if(chosen === "With Server Side Rendering (not finish)"){
             console.log(chalk.red("Sorry,We are soon ....."))
         }
     })
