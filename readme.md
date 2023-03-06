@@ -3,13 +3,15 @@
 <img  src="https://dose-products.netlify.app/static/media/logo.7e984b778cc885121711.png"  width="100" height="100" />
 
 ## Here we have
-### -React
+### -React(TS)
 
-### -solid
+### -solid(TS)
 
-### -Tauri
+### -Tauri(TS + Rust)
 
-### -Electron
+### -Electron(JS)
+
+### -Express(TS-NODE + SWC)
 
 in TypeScript template
 
@@ -28,3 +30,8 @@ sora
 ```powershell
 dose
 ```
+
+## tool require
+-git
+-vscode
+-nodeJS
