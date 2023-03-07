@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "1.0.5-beta",
+  "version": "1.0.8-beta",
   "description": "install template is easy",
   "main": "index.js",
   "bin": {
@@ -16,6 +16,21 @@
   "dependencies": {
     "chalk": "^5.2.0",
     "inquirer": "^9.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnie3237/DosE3.git"
+  },
+  "keywords": [
+    "Typescript",
+    "dose3",
+    "tauri",
+    "express",
+    "react",
+    "solid"
+  ],
+  "bugs": {
+    "url": "https://github.com/donnie3237/DosE3.git"
   },
   "files": [
     "bb.js",
