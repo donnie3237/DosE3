@@ -2,7 +2,7 @@
 
 import chalk from 'chalk';
 console.log()
-console.log(chalk.bgBlack('  version  1.0.5-beta  '))
+console.log(chalk.bgBlack('  version  1.0.9-beta  '))
 console.log()
 console.log(chalk.bgBlue("                Front-End                ")) 
 console.log('')

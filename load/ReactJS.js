@@ -34,6 +34,21 @@ function ReactTS(name){
         }else if(chosen === "With Server Side Rendering (not finish)"){
             console.log(chalk.red("Sorry,We are soon ....."))
         }
+        Logo();
+    inquirer.prompt(
+        { 
+        type: "list",
+        name: "con",
+        message: chalk.green("End : "),
+        choices : [
+            "finish",
+            "VScode"]
+        }).then(awn =>{
+            if(awn.con === "VScode"){
+                runCommand(`cd ${name} && code .`)
+            }
+        })
     })
+    
 }
 export default ReactTS ;

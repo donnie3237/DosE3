@@ -12,10 +12,12 @@ const choices = [
 ];
 inquirer.prompt(
   [
-    {type:"input",
-    name:"name",
-    message: "project name :",
-    default:"dose"}
+    {
+      type:"input",
+      name:"name",
+      message: "project name :",
+      default:"dose"
+    }
     ,{
       type: "list",
       name: "framework",

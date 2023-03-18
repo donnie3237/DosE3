@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "1.0.8-beta",
+  "version": "1.0.9-beta",
   "description": "install template is easy",
   "main": "index.js",
   "bin": {
