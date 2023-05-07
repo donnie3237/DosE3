@@ -3,9 +3,9 @@ import inquirer from 'inquirer'
 import { execSync } from 'child_process';
 import Logo from "./LOgo/Logo.js";
 
-function TR(name){
-    const gitTauri_react = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
-    const gitTauri_solid = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
+function Actix_RS(name){
+    const gitActix_Mongodb = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
+    const gitActix_Pg = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
@@ -18,25 +18,18 @@ function TR(name){
     inquirer.prompt(
         { 
           type: "list",
-          name: "framework",
-          message: "Select tool of project :",
+          name: "database",
+          message: "Select Database :",
           choices : [
-            "+ReactTS",
-            "+SolidTS"]
+            "MongoBD",
+            "PostgreSQL (not finish)"]
         }
       ).then(awnser =>{
-        console.log('  ' + chalk.bgGreen( `  With : ${awnser.framework}   `))
-        const chosen = awnser.framework ;
-        console.log('');
+        console.log('  ' + chalk.bgGreen( `  With : ${awnser.database}   `))
         console.log(chalk.red("Installing.......   "))
-        if(chosen === "+ReactTS"){
-            const checkOut = runCommand(gitTauri_react)
-            if(!checkOut) process.exit(-1)
-        }else if(chosen === "+SolidTS"){
-            const checkOut = runCommand(gitTauri_solid)
-            if(!checkOut) process.exit(-1)
-        }
-        Logo();
+        if(awnser.database === "MongoBD"){
+            runCommand(gitActix_Mongodb)
+            Logo();
         inquirer.prompt(
             { 
               type: "list",
@@ -50,7 +43,13 @@ function TR(name){
                     runCommand(`cd ${name} && code .`)
                 }
             })
+        }else if(awnser.database === "PostgreSQL (not finish)"){
+            console.log(chalk.red("Sorry,We are soon ....."))
+        }else{
+            console.log("error")
+        }
+        
     })
 }
 
-export default TR ;
+export default Actix_RS;
