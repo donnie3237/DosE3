@@ -17,18 +17,18 @@ in TypeScript template
 
 ## To install
 
-```powershell
+```
 npm i -g dose3
 pnpm i -g dose3
 yarn add -g dose3
 ```
 
 ## Script
-```powershell
-sora
 ```
-```powershell
-dose
+sora  ----> for check version update
+```
+```
+dose  ----> for start project
 ```
 
 ## tool require
