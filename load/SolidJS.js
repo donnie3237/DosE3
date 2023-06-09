@@ -5,7 +5,7 @@ import Logo from "./LOgo/Logo.js";
 
 function SolidJS(name){
     const gitSolid_Basic = `git clone --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
-    const gitSolid_Auth = `git clone -b auth --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
+    const gitSolid_SSR = `git clone -b auth --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
     const runCommand = command => {
         try {
             execSync(`${command}`,{stdio:'inherit'});
@@ -22,7 +22,7 @@ function SolidJS(name){
           message: "Select tool of project :",
           choices : [
             "Basic + viteJS",
-            "Auth  + SolidStart"]
+            "+ AstroJS"]
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.framework}   `))
@@ -32,8 +32,8 @@ function SolidJS(name){
         if(chosen === "Basic + viteJS"){
             const checkOut = runCommand(gitSolid_Basic)
             if(!checkOut) process.exit(-1)
-        }else if(chosen === "Auth  + SolidStart"){
-            const checkOut = runCommand(gitSolid_Auth)
+        }else if(chosen === "+ AstroJS"){
+            const checkOut = runCommand(gitSolid_SSR)
             if(!checkOut) process.exit(-1)
         }
         Logo();

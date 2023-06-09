@@ -22,7 +22,7 @@ function ReactTS(name){
           message: "Select tools :",
           choices : [
             "Basic",
-            "With Server Side Rendering (not finish)"]
+            "AstroJS (not finish)"]
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.tool}   `))
