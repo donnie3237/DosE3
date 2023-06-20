@@ -14,7 +14,7 @@ function Logo(){
         console.log(chalk.red('------------------------------------'))
         console.log(chalk.green('------------------------------------'))
         console.log(chalk.gray('My Github : donnie3237'))
-        console.log(chalk.gray('My products : https://dose-products.netlify.app/'))
+        console.log(chalk.gray('My products : https://dose-products.vercel.app/'))
         console.log("");
 }
 export default Logo ;

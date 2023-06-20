@@ -1,20 +1,12 @@
 import chalk from "chalk";
 import inquirer from 'inquirer'
-import { execSync } from 'child_process';
-import Logo from "./LOgo/Logo.js";
+import Logo from "./process/Logo.js";
+import { runCommand } from "./process/runCommand.js";
 
 function TauriRS(name){
     const gitTauri_react = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
     const gitTauri_solid = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
-    const runCommand = command => {
-        try {
-            execSync(`${command}`,{stdio:'inherit'});
-        } catch (e) {
-            console.error(`Failed to execute ${command}`,e)
-            return false ;
-        }
-        return true ;
-    }
+
     inquirer.prompt(
         { 
           type: "list",

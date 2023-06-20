@@ -1,20 +1,14 @@
 import chalk from "chalk";
 import inquirer from 'inquirer'
-import { execSync } from 'child_process';
-import Logo from "./LOgo/Logo.js";
+import Logo from "./process/Logo.js";
+import { end } from "./process/end.js";
+import { runCommand } from "./process/runCommand.js";
 
 function ExpressTS(name){
     const gitExpress_MongoDB = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     const gitExpress_Pg = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
-    const runCommand = command => {
-        try {
-            execSync(`${command}`,{stdio:'inherit'});
-        } catch (e) {
-            console.error(`Failed to execute ${command}`,e)
-            return false ;
-        }
-        return true ;
-    }
+    const gitExpress_MongoDB_vercel = `git clone -b mongo_vercel --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
+
     inquirer.prompt(
         { 
           type: "list",
@@ -22,6 +16,7 @@ function ExpressTS(name){
           message: "Select Database :",
           choices : [
             "MongoBD",
+            "MongoDB host on vercel",
             "PostgreSQL (not finish)"]
         }
       ).then(awnser =>{
@@ -30,21 +25,13 @@ function ExpressTS(name){
         if(awnser.database === "MongoBD"){
             runCommand(gitExpress_MongoDB)
             Logo();
-        inquirer.prompt(
-            { 
-              type: "list",
-              name: "con",
-              message: chalk.green("End : "),
-              choices : [
-                "finish",
-                "VScode"]
-            }).then(awn =>{
-                if(awn.con === "VScode"){
-                    runCommand(`cd ${name} && code .`)
-                }
-            })
+            end(name)
         }else if(awnser.database === "PostgreSQL (not finish)"){
             console.log(chalk.red("Sorry,We are soon ....."))
+        }else if(awnser.database === "MongoDB host on vercel"){
+            runCommand(gitExpress_MongoDB_vercel)
+            Logo();
+            end(name)
         }else{
             console.log("error")
         }

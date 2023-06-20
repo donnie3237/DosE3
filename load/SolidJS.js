@@ -1,20 +1,13 @@
 import chalk from "chalk";
 import inquirer from 'inquirer'
-import { execSync } from 'child_process';
-import Logo from "./LOgo/Logo.js";
+import Logo from "./process/Logo.js";
+import { end } from "./process/end.js";
+import { runCommand } from "./process/runCommand.js";
 
 function SolidJS(name){
     const gitSolid_Basic = `git clone --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
     const gitSolid_SSR = `git clone -b auth --depth 1 https://github.com/donnie3237/SolidTS-Template.git ${name}`
-    const runCommand = command => {
-        try {
-            execSync(`${command}`,{stdio:'inherit'});
-        } catch (e) {
-            console.error(`Failed to execute ${command}`,e)
-            return false ;
-        }
-        return true ;
-    }
+
     inquirer.prompt(
         { 
           type: "list",
@@ -37,19 +30,7 @@ function SolidJS(name){
             if(!checkOut) process.exit(-1)
         }
         Logo();
-        inquirer.prompt(
-            { 
-              type: "list",
-              name: "con",
-              message: chalk.green("End : "),
-              choices : [
-                "finish",
-                "VScode"]
-            }).then(awn =>{
-                if(awn.con === "VScode"){
-                    runCommand(`cd ${name} && code .`)
-                }
-            })
+        end(name)
     })
 }
 
