@@ -19,20 +19,20 @@ function TauriRS(name){
         { 
           type: "list",
           name: "framework",
-          message: "Select tool of project :",
+          message: "What you want to do? :",
           choices : [
-            "+ReactTS",
-            "+SolidTS"]
+            "Desktop App",
+            "Mobile App"]
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.framework}   `))
         const chosen = awnser.framework ;
         console.log('');
         console.log(chalk.red("Installing.......   "))
-        if(chosen === "+ReactTS"){
-            const checkOut = runCommand(gitTauri_react)
+        if(chosen === "op App"){
+            const checkOut = runCommand(gitTauri_solid)
             if(!checkOut) process.exit(-1)
-        }else if(chosen === "+SolidTS"){
+        }else if(chosen === "Mobile App"){
             const checkOut = runCommand(gitTauri_solid)
             if(!checkOut) process.exit(-1)
         }
