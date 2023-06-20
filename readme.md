@@ -1,17 +1,16 @@
-# Welcome to my Template(DosE3) updated 2023
+# Welcome to Dose3 starter kit
 
-## Here we have
-### -React(TS)
 
-### -solid(TS)
+### ReactJS
 
-### -Tauri(TS + Rust)
+### SolidJS
 
-### -Electron(JS)
+### Tauri
 
-### -Express(TS-NODE + SWC)
+### Actix-web
 
-in TypeScript template
+### ExpressJS
+
 
 ## To install
 
