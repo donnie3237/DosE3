@@ -39,7 +39,11 @@ sora  ----> for check version update
 dose  ----> for start project
 ```
 
+
 ## tool require
 -git
 -vscode
 -nodeJS
+
+
+<a href="https://dose-products.vercel.app/dose3" target="blank">Learn more</a>
