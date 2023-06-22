@@ -21,6 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/donnie3237/DosE3.git"
   },
+  "homepage": "https://dose-products.vercel.app/dose3",
   "keywords": [
     "Typescript",
     "dose3",
@@ -30,7 +31,7 @@
     "solid"
   ],
   "bugs": {
-    "url": "https://dose-products.vercel.app/dose3"
+    "url": "git+https://github.com/donnie3237/DosE3.git"
   },
   "files": [
     "sora.js",
