@@ -2,6 +2,7 @@ import chalk from "chalk";
 import inquirer from 'inquirer'
 import Logo from "./process/Logo.js";
 import { runCommand } from "./process/runCommand.js";
+import { end } from "./process/end.js";
 
 function TauriRS(name){
     const gitTauri_react = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
@@ -21,7 +22,7 @@ function TauriRS(name){
         const chosen = awnser.framework ;
         console.log('');
         console.log(chalk.red("Installing.......   "))
-        if(chosen === "op App"){
+        if(chosen === "Desktop App"){
             const checkOut = runCommand(gitTauri_solid)
             if(!checkOut) process.exit(-1)
         }else if(chosen === "Mobile App"){
@@ -29,19 +30,7 @@ function TauriRS(name){
             if(!checkOut) process.exit(-1)
         }
         Logo();
-        inquirer.prompt(
-            { 
-              type: "list",
-              name: "con",
-              message: chalk.green("End : "),
-              choices : [
-                "finish",
-                "VScode"]
-            }).then(awn =>{
-                if(awn.con === "VScode"){
-                    runCommand(`cd ${name} && code .`)
-                }
-            })
+        end(name);
     })
 }
 

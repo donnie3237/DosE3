@@ -25,4 +25,5 @@ function install(Para , name){
     console.log("error")
   }
 }
+
 export default install;
