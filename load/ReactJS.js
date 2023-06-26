@@ -6,7 +6,7 @@ import { runCommand } from "./process/runCommand.js";
 
 function ReactTS(name){
     const gitReact_Basic = `git clone --depth 1 https://github.com/donnie3237/React-template.git ${name}`
-    const gitReact_NextJS = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
+    const gitReact_SSR = `git clone -b astro --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
 
     inquirer.prompt(
         { 
@@ -15,7 +15,7 @@ function ReactTS(name){
           message: "Select tools :",
           choices : [
             "Basic",
-            "NextJS"]
+            "+AstroJS"]
         }
       ).then(awnser =>{
         console.log('  ' + chalk.bgGreen( `  With : ${awnser.tool}   `))
@@ -26,8 +26,10 @@ function ReactTS(name){
             runCommand(gitReact_Basic);
             Logo();
             end(name)
-        }else if(chosen === "NextJS (not finish)"){
-            console.log(chalk.red("Sorry,We are soon ....."))
+        }else if(chosen === "+AstroJS"){
+            runCommand(gitReact_SSR);
+            Logo();
+            end(name)
         }
     })
 }
