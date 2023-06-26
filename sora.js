@@ -1,8 +1,7 @@
 #!/usr/bin/env node
-
 import chalk from 'chalk';
 console.log()
-console.log(chalk.bgBlack('            version  1.1.6-beta            '))
+console.log(chalk.bgBlack('            version  1.1.7-beta            '))
 console.log()
 console.log(chalk.bgBlue("                 Front-End                 ")) 
 console.log('')
@@ -33,3 +32,4 @@ console.log('| Tauri Mobile         ' + '  | --/--/--       |')
 console.log('| Tauri Desktop        ' + '  | 17/02/66       |')
 console.log(' -----------------------------------------')
 console.log('')
+
