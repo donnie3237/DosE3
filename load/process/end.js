@@ -12,8 +12,8 @@ const runCommand = command => {
     return true ;
 }
 
-export function end(name){
-
+export async function end(name){
+    await runCommand(`cd ${name} && rd /s /q .git`)
     inquirer.prompt(
         { 
           type: "list",
