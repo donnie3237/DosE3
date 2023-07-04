@@ -5,7 +5,6 @@ import { runCommand } from "./process/runCommand.js";
 
 function Actix_RS(name){
     const gitActix_Mongodb = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
-    const gitActix_Pg = `git clone --depth 1 https://github.com/donnie3237/ExpressJS-Template.git ${name}`
     
     inquirer.prompt(
         { 

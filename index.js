@@ -5,10 +5,11 @@ import install from './install.js';
 
 const choices = [
   chalk.rgb(0,0,255)('ReactTS'),
-  chalk.rgb(0,255,127)('Actix-web'),
-  chalk.yellow('TauriJS'),
   chalk.rgb(0,255,255)('SolidTS'),
+  chalk.rgb(235, 1, 40)('AstroJS'),
+  chalk.yellow('TauriJS'),
   chalk.rgb(0,255,0)('ExpressTS'),
+  chalk.rgb(84, 84, 84)('Actix-web'),
 ];
 inquirer.prompt(
   [

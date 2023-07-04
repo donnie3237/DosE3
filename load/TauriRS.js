@@ -1,37 +1,12 @@
-import chalk from "chalk";
-import inquirer from 'inquirer'
 import Logo from "./process/Logo.js";
 import { runCommand } from "./process/runCommand.js";
 import { end } from "./process/end.js";
 
 function TauriRS(name){
-    const gitTauri_react = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
-    const gitTauri_solid = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
-
-    inquirer.prompt(
-        { 
-          type: "list",
-          name: "framework",
-          message: "What you want to do? :",
-          choices : [
-            "Desktop App",
-            "Mobile App"]
-        }
-      ).then(awnser =>{
-        console.log('  ' + chalk.bgGreen( `  With : ${awnser.framework}   `))
-        const chosen = awnser.framework ;
-        console.log('');
-        console.log(chalk.red("Installing.......   "))
-        if(chosen === "Desktop App"){
-            const checkOut = runCommand(gitTauri_solid)
-            if(!checkOut) process.exit(-1)
-        }else if(chosen === "Mobile App"){
-            const checkOut = runCommand(gitTauri_solid)
-            if(!checkOut) process.exit(-1)
-        }
-        Logo();
-        end(name);
-    })
+    const gitTauri = `git clone --depth 1 https://github.com/donnie3237/Tauri-template.git ${name}`
+    runCommand(gitTauri);
+    Logo();
+    end(name);
 }
 
 export default TauriRS;
