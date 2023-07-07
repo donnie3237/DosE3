@@ -3,7 +3,7 @@ import { end } from "./process/end.js";
 import { runCommand } from "./process/runCommand.js";
 
 function Astro(name){
-    const gitAstro = `git clone --depth 1 https://github.com/donnie3237/React-template.git ${name}`
+    const gitAstro = `git clone --depth 1 https://github.com/donnie3237/Astro-template.git ${name}`
     runCommand(gitAstro)
     Logo();
     end(name)
