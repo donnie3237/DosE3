@@ -10,7 +10,6 @@
 ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"  width="100" height="90"/>
 ><img src="https://www.solidjs.com/img/logo/without-wordmark/logo.png" width="100" height="100" />
 ><img src="https://th.bing.com/th/id/OIP.G2pyZt8C6NxKNu-jZ-CeTwAAAA?pid=ImgDet&rs=1" width="100" height="100" />
-><img src="https://www.solidjs.com/img/logo/without-wordmark/logo.png" width="100" height="100" />
 ></div>
 <br/>
 
@@ -29,16 +28,14 @@
 
 ```
 npm i -g dose3
-pnpm i -g dose3
-yarn add -g dose3
 ```
 
 ## Script
 ```
-sora  ----> for check version update
+dose -v  ----> check version
 ```
 ```
-dose  ----> for start project
+dose update  ----> update version
 ```
 
 
@@ -47,5 +44,4 @@ dose  ----> for start project
 -vscode
 -nodeJS
 
-
-<a href="https://dose-products.vercel.app/dose3" target="blank">Learn more</a>
+<a href="https://dose-products2.vercel.app/dose3" target="blank">Learn more</a>
