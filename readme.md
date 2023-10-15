@@ -9,6 +9,8 @@
 ><img src="https://miro.medium.com/v2/resize:fit:486/0*lNoeGL7_495Dhe6Z.png" width="200" height="100" />
 ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"  width="100" height="90"/>
 ><img src="https://www.solidjs.com/img/logo/without-wordmark/logo.png" width="100" height="100" />
+><img src="https://th.bing.com/th/id/OIP.G2pyZt8C6NxKNu-jZ-CeTwAAAA?pid=ImgDet&rs=1" width="100" height="100" />
+><img src="https://www.solidjs.com/img/logo/without-wordmark/logo.png" width="100" height="100" />
 ></div>
 <br/>
 

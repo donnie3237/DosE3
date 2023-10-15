@@ -4,6 +4,7 @@ import ReactTS from "./load/ReactJS.js";
 import SolidJS from "./load/SolidJS.js";
 import TauriRS from "./load/TauriRS.js";
 import Actix_RS from "./load/ActixRS.js";
+import Astro from "./load/Astro.js";
 
 function install(Para , name){        
   if(Para === chalk.rgb(0,255,255)('SolidTS')){
@@ -23,7 +24,7 @@ function install(Para , name){
     ExpressTS(name)
   }else if(Para === chalk.rgb(235, 1, 40)('AstroJS')){
     console.log('  '+ chalk.bgRgb(0,255,0)('      AstroJS      '))
-
+    Astro(name)
   }else{
     console.log("error")
   }

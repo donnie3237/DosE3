@@ -25,7 +25,7 @@ if (args.includes('update')) {
     console.log(stdout);
   });
 } else if (args.includes('-v') || args.includes('--version')) {
-  console.log('Dose3 Version: 1.1.9-beta'); // Replace with your tool's name and version
+  console.log('---> Dose3 Version : 2.0.0'); // Replace with your tool's name and version
 } else {
   inquirer
     .prompt([
