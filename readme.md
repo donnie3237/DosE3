@@ -9,9 +9,10 @@ npm i -g dose3
 ## Script
 ```
 dose -v  ----> check version
-```
-```
 dose update  ----> update version
+dose scan  ----> scan runing port
+dose kill <YOUR PORT> ----> kill port
+dose ----> start new project
 ```
 
 ## Tool Require
