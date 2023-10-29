@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "2.0.0",
+  "version": "2.0.7",
   "description": "Best starter kit for you",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
-    "inquirer": "^9.1.4"
+    "inquirer": "^9.1.4",
+    "kill-port": "^2.0.1"
   },
   "repository": {
     "type": "git",
