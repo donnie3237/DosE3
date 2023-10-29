@@ -1,30 +1,9 @@
-<h1 align="center">Welcome to dose3 starter kit</h1>
+[![Logo](https://github.com/donnie3237/Dose-products2/blob/main/public/img/nkl5.jpg?raw=true)](https://dose-products2.vercel.app/dose3)
+<div align="center">
+ <a  href="https://dose-products2.vercel.app/dose3" target="blank">Learn more</a>
+</div>
 
-<br/>
-
-><h2>Framework & Library</h2>
-><div>
->ReactJS (Front-end)<br/>
->SolidJS (Front-end performance)<br/>
->Astrojs (Front-end SSG)<br/>
->ExpressJS (Server side)<br/>
->Actix-web (server side performance)<br/>
->Tauri (Mobile & Desktop)<br/>
-></div>
-<br/>
-
- ><h2>Inside</h2>
-><div>
->Zustand (Global state)<br/>
->SCSS (css lib)<br/>
->Vitest (unit test tool)<br/>
->VitePWA (mobile and desktop)<br/>
->Prisma (ORM)<br/>
->Mongoose (ODM)<br/>
->SWC (JavaScript bundler)<br/>
-
-></div>
-## To install
+### To install
 
 ```
 npm i -g dose3
@@ -38,12 +17,25 @@ dose -v  ----> check version
 dose update  ----> update version
 ```
 
+## Tool Require
+* Git<br/>
+* Vscode<br/>
+* odeJS<br/>
+* Rust (tauri)
+  
+## Framework & Library
+* ReactJS (Front-end)
+* SolidJS (Front-end performance)
+* Astrojs (Front-end SSG)
+* ExpressJS (Server side)
+* Actix-web (server side performance)
+* Tauri (Mobile & Desktop)
+<br/>
 
-## tool require
->Git<br/>
->Vscode<br/>
->NodeJS<br/>
->Rust (tauri)<br/>
-<div align="center">
- <a  href="https://dose-products2.vercel.app/dose3" target="blank">Learn more</a>
-</div>
+## Inside
+* Zustand (Global state)
+* SCSS (css lib)
+* Vitest (unit test tool)
+* VitePWA (mobile and desktop)
+* Prisma (ORM)
+* Mongoose (ODM)
