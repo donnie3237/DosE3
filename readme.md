@@ -1,7 +1,4 @@
 [![Logo](https://github.com/donnie3237/Dose-products2/blob/main/public/img/nkl5.jpg?raw=true)](https://dose-products2.vercel.app/dose3)
-<div align="center">
- <a  href="https://dose-products2.vercel.app/dose3" target="blank">Learn more</a>
-</div>
 
 ### To install
 
