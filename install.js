@@ -5,9 +5,13 @@ import SolidJS from "./load/SolidJS.js";
 import TauriRS from "./load/TauriRS.js";
 import Actix_RS from "./load/ActixRS.js";
 import Astro from "./load/Astro.js";
+import VueFastify from "./load/Vue-Fastify.js";
 
-function install(Para , name){        
-  if(Para === chalk.rgb(0,255,255)('SolidTS')){
+function install(Para , name){     
+  if(Para === chalk.rgb(84, 84, 84)('Vue-Fastify')) {
+    console.log('  '+ chalk.bgRgb(0,255,255)('      Vue-Fastify      '))
+    VueFastify(name)
+  }else if(Para === chalk.rgb(0,255,255)('SolidTS')){
     console.log('  '+ chalk.bgRgb(0,255,255)('      SolidTS      '))
     SolidJS(name)
   }else if(Para === chalk.rgb(84, 84, 84)('Actix-web')){

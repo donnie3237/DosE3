@@ -7,6 +7,7 @@ import { scan } from './load/port/scan.js';
 import { kill } from './load/port/kill.js';
 
 const choices = [
+  chalk.rgb(84, 84, 84)('Vue-Fastify'),
   chalk.rgb(0, 0, 255)('ReactTS'),
   chalk.rgb(0, 255, 255)('SolidTS'),
   chalk.rgb(235, 1, 40)('AstroJS'),
@@ -30,7 +31,7 @@ if (args.includes('-h')) {
     console.log(stdout);
   });
 } else if (args.includes('-v') || args.includes('--version')) {
-  console.log('---> Dose3 Version : 2.0.0'); // Replace with your tool's name and version
+  console.log('---> Dose3 Version : 2.0.8'); // Replace with your tool's name and version
 }else if (args.includes('scan')){
   scan()
 }else if (args.includes('kill')){
