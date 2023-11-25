@@ -21,7 +21,7 @@ const args = process.argv.slice(2);
 const args2 = process.argv.slice(3);
 
 if (args.includes('-h')) {
-  console.log("----need help call : https://dose-products2.vercel.app/dose3 -------");
+  console.log("----need help call : https://dose3-docs.vercel.app/ -------");
 }else if (args.includes('update')) {
   // Run npm install -g dose3@latest
   runCommand('npm install -g dose3@latest', (error, stdout, stderr) => {

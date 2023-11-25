@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Best starter kit for you",
   "main": "index.js",
   "bin": {
