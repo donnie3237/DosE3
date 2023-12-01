@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-import inquirer from 'inquirer';
+
 import chalk from 'chalk';
 import install from './install.js';
+import inquirer from 'inquirer';
 import { runCommand } from './load/process/runCommand.js';
 import { scan } from './load/port/scan.js';
 import { kill } from './load/port/kill.js';
@@ -25,13 +26,7 @@ if (args.includes('-h')) {
   console.log("----need help call : https://dose3-docs.vercel.app/ -------");
 }else if (args.includes('update')) {
   // Run npm install -g dose3@latest
-  runCommand('npm install -g dose3@latest', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`);
-      return;
-    }
-    console.log(stdout);
-  });
+  runCommand('npm install -g dose3@latest');
 } else if (args.includes('-v') || args.includes('--version')) {
   console.log('---> Dose3 Version : 2.1.0'); // Replace with your tool's name and version
 }else if (args.includes('scan')){

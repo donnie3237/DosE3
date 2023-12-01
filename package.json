@@ -1,21 +1,22 @@
 {
   "name": "dose3",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Best starter kit for you",
-  "main": "index.js",
-  "bin": {
-    "dose": "./index.js"
-  },
   "type": "module",
+  "bin": {
+    "dose": "./cli/index.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/index.js"
   },
   "author": "SoRa",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
-    "inquirer": "^9.1.4",
-    "kill-port": "^2.0.1"
+    "inquirer": "^9.2.12",
+    "kill-port": "^2.0.1",
+    "typescript": "^5.3.2"
   },
   "repository": {
     "type": "git",
@@ -36,11 +37,13 @@
     "url": "git+https://github.com/donnie3237/DosE3.git"
   },
   "files": [
-    "sora.js",
-    "install.js",
-    "index.js",
-    "load",
+    "cli",
     "readme.md",
     "licence.md"
-  ]
+  ],
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.1",
+    "ts-node": "^10.9.1"
+  }
 }
