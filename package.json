@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "2.0.11",
+  "version": "2.1.0",
   "description": "Best starter kit for you",
   "main": "index.js",
   "bin": {
@@ -21,14 +21,16 @@
     "type": "git",
     "url": "git+https://github.com/donnie3237/DosE3.git"
   },
-  "homepage": "https://dose-products2.vercel.app/dose3",
+  "homepage": "https://dose3-docs.vercel.app",
   "keywords": [
     "Typescript",
     "dose3",
     "tauri",
     "express",
     "react",
-    "solid"
+    "solid",
+    "starterkit",
+    "nextjs"
   ],
   "bugs": {
     "url": "git+https://github.com/donnie3237/DosE3.git"

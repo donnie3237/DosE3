@@ -21,8 +21,7 @@ function ExpressTS(name){
           ]
         }
       ).then(awnser =>{
-        console.log('  ' + chalk.bgGreen( `  With : ${awnser.database}   `))
-        console.log(chalk.red("Installing.......   "))
+        console.log('  ' + chalk.green( `With : ${awnser.database}   `))
         if(awnser.database === "MongoBD"){
             runCommand(gitExpress_MongoDB)
             Logo();
