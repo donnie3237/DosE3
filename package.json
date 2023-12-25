@@ -1,7 +1,7 @@
 {
   "name": "dose3",
-  "version": "2.1.3",
-  "description": "Best starter kit for you",
+  "version": "2.1.4",
+  "description": "dose3 starter kit",
   "type": "module",
   "bin": {
     "dose": "./cli/index.js"
@@ -25,14 +25,17 @@
     "type": "git",
     "url": "git+https://github.com/donnie3237/DosE3.git"
   },
-  "homepage": "https://dose3-docs.vercel.app",
+  "homepage": "https://dose3.dxse.site",
   "keywords": [
     "Typescript",
     "dose3",
     "tauri",
     "express",
+    "vue",
     "react",
     "solid",
+    "fastify",
+    "astro",
     "starterkit",
     "nextjs"
   ],
