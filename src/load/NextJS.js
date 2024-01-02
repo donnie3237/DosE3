@@ -3,11 +3,10 @@ import { runCommand } from "./process/runCommand.js";
 import { end } from "./process/end.js";
 
 function NextJS(name) {
-	const gitNextjs = `git clone --depth 1 https://github.com/JKTheRipperTH/fastify-dose3-Template.git ${name}`;
-	// runCommand(gitFastify);
-	// Logo();
-	// end(name);
-	console.log("not ready now");
+	const gitNextjs = `git clone --depth 1 https://github.com/donnie3237/Nextjs-template ${name}`;
+	runCommand(gitNextjs);
+	Logo();
+	end(name);
 }
 
 export default NextJS;
