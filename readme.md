@@ -43,3 +43,5 @@ dose ----> start new project
 * BiomeJS (front matter && linter)
 * tailwindcss (css lib)
 * Mongoose (ODM)
+
+<div align="center"><a href="dose3.dxse.site">Learn more</a></div>
