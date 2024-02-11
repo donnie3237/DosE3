@@ -22,7 +22,7 @@ const args = process.argv.slice(2);
 const args2 = process.argv.slice(3);
 
 if (args.includes("-h")) {
-	console.log(" https://dose3-docs.vercel.app/");
+	console.log(" https://dose3.dxse.site/");
 } else if (args.includes("update")) {
 	// Run npm install -g dose3@latest
 	runCommand("npm install -g dose3@latest").then(()=>{
