@@ -29,7 +29,7 @@ if (args.includes("-h")) {
     console.log("update finished!!");
   });
 } else if (args.includes("-v") || args.includes("--version")) {
-	console.log("Dose3 Version : 2.1.3"); // Replace with your tool's name and version
+	console.log("Dose3 Version : 2.2.3"); // Replace with your tool's name and version
 } else if (args.includes("scan")) {
 	scan();
 } else if (args.includes("kill")) {

@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "2.1.5",
+  "version": "2.2.4",
   "description": "dose3 starter kit",
   "type": "module",
   "bin": {
@@ -15,7 +15,6 @@
   "author": "SoRa",
   "license": "MIT",
   "dependencies": {
-    "@google/generative-ai": "^0.1.2",
     "chalk": "^5.2.0",
     "inquirer": "^9.2.12",
     "kill-port": "^2.0.1",
