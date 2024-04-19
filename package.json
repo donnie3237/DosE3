@@ -7,7 +7,7 @@
     "dose": "./cli/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "start": "ts-node ./src/index.js",
     "format": "biome format ./src --write",
     "build": "tsc"
