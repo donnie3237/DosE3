@@ -1,2 +1,5 @@
 /node_modules
-/cli
+/dist
+/package-lock.json
+/pnpm-lock.yaml
+/d3

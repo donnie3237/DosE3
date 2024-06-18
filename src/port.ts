@@ -1,6 +1,13 @@
-import net from "net";
+import killPort from "kill-port";
 
-function checkPort(port) {
+export function kill(port : any) {
+	killPort(port, "tcp").then(() => console.log(`Closed port ${port}`));
+}
+
+
+import net from "node:net";
+
+function checkPort(port : any) {
 	return new Promise((resolve) => {
 		const client = net.connect(port, "localhost", () => {
 			// Port is open and a connection was established
@@ -15,7 +22,7 @@ function checkPort(port) {
 	});
 }
 
-async function checkPorts(startPort, endPort , onComplete) {
+async function checkPorts(startPort : number, endPort : number , onComplete: any) {
 	for (let port = startPort; port <= endPort; port++) {
 		const result = await checkPort(port);
 		if (result !== null) {
