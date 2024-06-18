@@ -1,5 +1,6 @@
 import { execSync } from "node:child_process";
 import { end } from "./end";
+import { spinner } from '@clack/prompts';
 
 export function runCommand(command: string) {
 	try {
@@ -13,11 +14,12 @@ export function runCommand(command: string) {
 }
 
 export async function cloneAndEnd(git : string , name : string) {
+
+const s = spinner();
+	s.start('loading......');
 	const cloneCommmand = `git clone --depth 1 ${git} ${name}`;
 	await runCommand(cloneCommmand);
-	console.log("");
-	console.log("Successfully install!!       ");
+	s.stop('Successfully install!!       ');
 	console.log("Learn more : https://dose3.dxse.site/");
-	console.log("");
 	end(name);
 }
