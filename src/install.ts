@@ -7,25 +7,28 @@ function install(framework: string, name: string) {
 		cloneAndEnd(Github.vue , name)
 		break;
 	  case "Fastify":
-		cloneAndEnd(Github.vue , name)
+		cloneAndEnd(Github.fastify , name)
 		break;
-	  case "SolidTS":
-		cloneAndEnd(Github.vue , name)
+	  case "Typescript":
+		cloneAndEnd(Github.typescript , name)
 		break;
-	  case "Actix-web":
-		cloneAndEnd(Github.vue , name)
+	  case "Axum":
+		cloneAndEnd(Github.axum , name)
 		break;
 	  case "ReactTS":
-		cloneAndEnd(Github.vue , name)
+		cloneAndEnd(Github.react , name)
 		break;
 	  case "TauriJS":
-		cloneAndEnd(Github.vue , name)
+		cloneAndEnd(Github.tauri , name)
 		break;
 	  case "ExpressTS":
-		cloneAndEnd(Github.vue , name)
+		cloneAndEnd(Github.express , name)
 		break;
 	  case "AstroJS":
 		cloneAndEnd(Github.astro , name)
+		break;
+	  case "NextJS":
+		cloneAndEnd(Github.nextjs , name)
 		break;
 	  default:
 		console.log("error");

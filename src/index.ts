@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import install from "./install.ts";
 import { runCommand } from "./runCommand.ts";
-// import { scan } from "./load/port/scan.js";
-// import { kill } from "./load/port/kill.js";
 import { choices, packageModule } from "./config.ts";
 import * as p from '@clack/prompts';
 import { kill , scan } from "./port.ts";

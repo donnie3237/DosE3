@@ -2,7 +2,7 @@ import { execSync } from "node:child_process";
 import os from 'node:os'
 import { select } from '@clack/prompts';
 
-const runCommand = (command : string) => {
+function runCommand(command : string) : boolean {
 	try {
 		execSync(`${command}`, { stdio: "inherit" });
 	} catch (e) {
@@ -12,7 +12,7 @@ const runCommand = (command : string) => {
 	return true;
 };
 
-function removeGit(name : string){
+function removeGit(name : string) : void{
 	if (os.platform()=== 'win32'){
 		runCommand(`cd ${name} && rd /s /q .git`);
 	} else {
@@ -20,7 +20,7 @@ function removeGit(name : string){
 	}
 } 
 
-export async function end(name : string) {
+export async function end(name : string) : Promise<void> {
 	await removeGit(name)
 
 	const End = await select({
