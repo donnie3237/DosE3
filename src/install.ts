@@ -3,17 +3,14 @@ import { Github } from "./config.ts";
 
 function install(framework: string, name: string) {
 	switch (framework) {
-	  case "VueJS":
-		cloneAndEnd(Github.vue , name)
-		break;
-	  case "Fastify":
-		cloneAndEnd(Github.fastify , name)
-		break;
 	  case "Typescript":
 		cloneAndEnd(Github.typescript , name)
 		break;
-	  case "Axum":
-		cloneAndEnd(Github.axum , name)
+	  case "Hono":
+		cloneAndEnd(Github.hono , name)
+		break;
+	  case "Svelte":
+		cloneAndEnd(Github.svelte , name)
 		break;
 	  case "ReactTS":
 		cloneAndEnd(Github.react , name)

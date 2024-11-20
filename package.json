@@ -1,10 +1,10 @@
 {
   "name": "dose3",
-  "version": "2.3.1",
+  "version": "2.3.6",
   "description": "",
   "main": "./src/index.ts",
   "bin": {
-    "dose": "./dist/cjs/index.js"
+    "dose": "dist/cjs/index.js"
   },
   "scripts": {
     "start": "tsx ./src/index.ts",
