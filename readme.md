@@ -44,4 +44,4 @@ dose ----> start new project
 * tailwindcss (css lib)
 * Mongoose (ODM)
 
-<div align="center"><a href="https://dose3.dxse.site/">Learn more</a></div>
+<div align="center"><a href="https://dose3.dossware.com/">Learn more</a></div>
