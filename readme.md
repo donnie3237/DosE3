@@ -23,25 +23,14 @@ dose ----> start new project
   
 ## Framework & Library
 * ReactJS 
-* SolidJS
-* VueJS 
+* SvelteJS
 * Astrojs
 * ExpressJS
-* Fastify
+* Honojs
 * Nextjs
-* Actix-web
 * Tauri
 * Slidev
+* Typescript
 <br/>
-
-## Inside
-* Zustand (Global state)
-* SCSS (css lib)
-* Vitest (unit test tool)
-* VitePWA (mobile and desktop)
-* Prisma (ORM)
-* BiomeJS (front matter && linter)
-* tailwindcss (css lib)
-* Mongoose (ODM)
 
 <div align="center"><a href="https://dose3.dossware.com/">Learn more</a></div>
