@@ -20,6 +20,6 @@ const s = spinner();
 	const cloneCommmand = `git clone --depth 1 ${git} ${name}`;
 	await runCommand(cloneCommmand);
 	s.stop('Successfully install!!       ');
-	console.log("Learn more : https://dose3.dxse.site/");
+	console.log("Learn more : https://dose3.dossware.com/");
 	end(name);
 }

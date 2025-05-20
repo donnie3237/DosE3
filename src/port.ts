@@ -4,7 +4,6 @@ export function kill(port : any) {
 	killPort(port, "tcp").then(() => console.log(`Closed port ${port}`));
 }
 
-
 import net from "node:net";
 
 function checkPort(port : any) {

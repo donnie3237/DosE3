@@ -22,14 +22,14 @@ async function main() : Promise<void> {
 	const group : any = await p.group(
 		{
 		  name: () => p.text({ message: 'Your project name?' }),
-		  framework: ({ results }) =>
+		  framework: ({ results }: { results: { name: string } }) =>
 			p.select({
 			  message: `Select framework of ${results.name}?`,
 			  options: choices
 			}),
 		},
 		{
-		  onCancel: ({ results }) => {
+		  onCancel: () => {
 			p.cancel('Operation cancelled.');
 			process.exit(0);
 		  },
@@ -41,3 +41,5 @@ async function main() : Promise<void> {
 }	
 
 main()
+
+export default main;
