@@ -20,6 +20,7 @@ dose ----> start new project
 * Vscode<br/>
 * NodeJS<br/>
 * Rust (tauri)
+* Go (Gin)
   
 ## Framework & Library
 * ReactJS 
@@ -27,8 +28,10 @@ dose ----> start new project
 * Astrojs
 * ExpressJS
 * Honojs
+* Gin (Go)
+* Axum (Rust)
 * Nextjs
-* Tauri
+* Tauri (Rust)
 * Slidev
 * Typescript
 <br/>

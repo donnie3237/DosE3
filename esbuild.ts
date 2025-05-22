@@ -33,14 +33,14 @@ const sharedConfig = {
     console.log("CJS build done");
 
     // ESM build
-    await build({
-      ...sharedConfig,
-      platform: 'node',
-      format: "esm",
-      outdir: "dist",
-      target: "es2022",
-    });
-    console.log("ESM build done");
+    // await build({
+    //   ...sharedConfig,
+    //   platform: 'node',
+    //   format: "esm",
+    //   outdir: "dist",
+    //   target: "es2022",
+    // });
+    // console.log("ESM build done");
   } catch (error) {
     console.error(error);
   }
