@@ -7,6 +7,7 @@ npm i -g dose3
 ```
 
 ## Script
+
 ```
 dose -v  ----> check version
 dose update  ----> update version
@@ -16,24 +17,26 @@ dose ----> start new project
 ```
 
 ## Tool Require
-* Git<br/>
-* Vscode<br/>
-* NodeJS<br/>
-* Rust (tauri)
-* Go (Gin)
-  
+
+- Git<br/>
+- Vscode<br/>
+- NodeJS<br/>
+- Rust (tauri)
+- Go (Gin)
+
 ## Framework & Library
-* ReactJS 
-* SvelteJS
-* Astrojs
-* ExpressJS
-* Honojs
-* Gin (Go)
-* Axum (Rust)
-* Nextjs
-* Tauri (Rust)
-* Slidev
-* Typescript
-<br/>
+
+- ReactJS
+- SvelteJS
+- Astrojs
+- ExpressJS
+- Honojs
+- Gin (Go)
+- Axum (Rust)
+- Nextjs
+- Tauri (Rust)
+- Slidev
+- Typescript
+  <br/>
 
 <div align="center"><a href="https://dose3.dossware.com/">Learn more</a></div>

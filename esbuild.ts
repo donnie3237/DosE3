@@ -1,11 +1,11 @@
 const { build } = require("esbuild");
-const { dependencies, peerDependencies } = require('./package.json');
-const { Generator } = require('npm-dts');
+const { dependencies, peerDependencies } = require("./package.json");
+const { Generator } = require("npm-dts");
 
 // Improved type definitions generation
 async function generateTypeDefinitions() {
   const generator = new Generator({
-    entry: 'src/**/*.ts',    
+    entry: "src/**/*.ts",
   });
   await generator.generate(); // Use async/await for cleaner handling
 }
@@ -25,7 +25,7 @@ const sharedConfig = {
     // CJS build
     await build({
       ...sharedConfig,
-      platform: 'node',
+      platform: "node",
       format: "cjs",
       outdir: "dist/cjs",
       target: "es2022",
