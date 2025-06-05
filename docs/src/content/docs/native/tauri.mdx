@@ -1,0 +1,113 @@
+---
+title: Tauri
+description: A react page in my new dose3 docs site.
+---
+
+&nbsp;&nbsp;Tauri is a promising new technology for developing desktop applications. It offers a number of advantages over traditional desktop development frameworks, such as its ease of use, lightweight nature, and cross-platform support.
+
+## Structure
+### src-tauri
+you can code in rust and send data to your font-end by `invoke_handler`
+```rust
+#![cfg_attr(
+    all(not(debug_assertions), target_os = "windows"),
+    windows_subsystem = "windows"
+)]
+
+#[tauri::command]
+fn greet(name: &str) -> String {
+    format!("Hello, {}! You've been greeted from Rust!", name)
+}
+
+fn main() {
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![greet])
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+}
+```
+
+### src
+&nbsp;&nbsp;in src we use SolidJS front-end framework to make this application for lightweight and fast you can see it <a href="/web/solid">more</a>
+
+## Configuration
+&nbsp;&nbsp;in `/src-tauri/tauri.conf.json` file you will see code like this you can set many thing and if you want to config more <a href="https://tauri.app/">Learn</a>
+```json
+{
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build",
+    "devPath": "http://localhost:3333",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "DosE-Tauri",
+    "version": "1.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "DoseCorp",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/icon.ico",
+        "icons/icon.icns"
+      ],
+      "identifier": "com.dose.dev",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "width": 800,
+        "title": "DosE-Tauri",
+        "minWidth": 400,
+        "minHeight": 400
+      }
+    ]
+  }
+}
+```
+
+```shell
+npm run tauri dev
+```
+## Build
+- Windows,MacOS,Linux
+- Android
+- IOS/iPad

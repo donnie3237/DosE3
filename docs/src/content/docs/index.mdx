@@ -1,0 +1,45 @@
+---
+title: Home
+description: Dose3 Make Your Project Blazingly Fast with Cool App Template. Dose3 is a starter kit that helps you create productive websites, servers, native apps, and networks with React, SolidJS, NextJS, Astro, ExpressJS, Axum, MongoDB, PostgreSQL, Tauri, and more. Built by developers for developers. Get started today!
+template: splash
+pagefind: false
+hero:
+  title: '<div><h1 class="main-h">Make Your Project </h1><span class="main-text">Blazingly Fast</span></div>'
+  tagline: with cool app template dose3 starter kit
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Get Started
+      link: /guides/install/
+      icon: right-arrow
+      variant: primary
+    - text: Npm cli package
+      link: https://www.npmjs.com/package/dose3
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<div class="hero-bg">
+	<div class="bg-logo"></div>
+	<div class="bg-grad"></div>
+	<div class="bg-grad-red"></div>
+</div>
+
+## Make it with Dose3 
+
+<CardGrid stagger>
+	<Card title="Website" icon="star">
+		&nbsp;&nbsp;&nbsp;    make productive website with React , SolidJS "NextJS and Astro for Static Stite generater"
+	</Card>
+	<Card title="Server" icon="rocket">
+		&nbsp;&nbsp;&nbsp;    make server with expressjs , axum with mongodb, postgreSQL etc.
+	</Card>
+	<Card title="Native" icon="laptop">
+		&nbsp;&nbsp;&nbsp;    make native app with Tauri in webview2 and more easy with html css js stackd
+	</Card>
+	<Card title="Network" icon="open-book">
+		&nbsp;&nbsp;&nbsp;    more secure your network port and local port with dose3
+	</Card>
+</CardGrid>

@@ -12,7 +12,7 @@ async function generateTypeDefinitions() {
 
 // Combined shared configuration with enhanced comments
 const sharedConfig = {
-  entryPoints: ["package/**/*.ts"],
+  entryPoints: ["packages/**/*.ts"],
   bundle: true,
   minify: true,
 };

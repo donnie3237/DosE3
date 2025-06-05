@@ -1,0 +1,37 @@
+---
+title: Astro
+description: A react page in my new dose3 docs site.
+sidebar:
+  badge:
+    text: fast
+    variant: tip
+---
+
+&nbsp;&nbsp;AstroJS is a static site generator framework that focuses on speed and ease of development. It uses HTML, CSS, and JavaScript to create static pages that are optimized for performance.
+
+&nbsp;AstroJS is a good choice for creating content-rich websites, such as blogs, portfolios, and landing pages. It is also a good choice for developers who want to build websites quickly and easily.
+
+## Structure
+### public
+&nbsp;&nbsp;in this public floder you can add your asset like font, image, video then import your file in `.astro` or `.mdx` file like this
+```astro
+---
+import ... from '/yourimage.wpeg'
+---
+```
+### Layout
+### components
+### utils
+
+## Configuration
+in your `astro.config.mjs` file you can set anything what you want if you want to learn more <a href="https://docs.astro.build/en/reference/configuration-reference/">click</a>
+### compress
+&nbsp;&nbsp; astro-compress can zip your file for best performance
+```shell title="your log file"
+dist/_astro/ea48f09d.js                         0.99 kB │ gzip:  0.49 kB
+dist/_astro/hoisted.70e5c955.js                 6.10 kB │ gzip:  2.44 kB
+dist/_astro/ui-core.43ec0bc9.js                 56.98 kB │ gzip: 18.64 kB
+```
+
+### site
+ if you are host oyur website you can se your site for sitemap your website

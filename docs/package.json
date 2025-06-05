@@ -1,0 +1,36 @@
+{
+  "name": "better-belt",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "format": "biome format . --write",
+    "astro": "astro",
+    "add": "astro add vercel"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.4",
+    "@astrojs/markdown-remark": "^4.3.2",
+    "@astrojs/solid-js": "^4.4.2",
+    "@astrojs/starlight": "^0.29.0",
+    "@astrojs/tailwind": "^5.1.2",
+    "@sentry/astro": "^7.120.0",
+    "@vercel/speed-insights": "^1.1.0",
+    "astro": "4.15.8",
+    "astro-diagram": "^0.7.0",
+    "astro-meta-tags": "^0.2.2",
+    "mermaid": "^10.9.3",
+    "rehype-autolink-headings": "^7.1.0",
+    "sass": "^1.80.7",
+    "shiki": "^0.14.7",
+    "solid-js": "^1.9.3",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.4.1"
+  }
+}
