@@ -21,10 +21,10 @@ export default function Home() {
       </div>
       <div className="w-[100%] h-[100%] border-b-[1px]">
         <div className="flex flex-col sm:flex-row">
-          <div className="h-[350px] w-[100%] border-[1px]">
+          <div className="h-[350px] w-[100%] border-[0.5px]">
 
           </div>
-          <div className="h-[350px] w-[100%]  border-[1px]">
+          <div className="h-[350px] w-[100%]  border-[0.5px]">
 
           </div>
         
@@ -32,13 +32,13 @@ export default function Home() {
       </div>
       <div className="w-[100%] h-[100%] border-b-[1px]">
         <div className="flex flex-col sm:flex-row">
-          <div className="h-[250px] w-[100%]  border-[1px]">
+          <div className="h-[250px] w-[100%]  border-[0.5px]">
 
           </div>
-          <div className="h-[250px] w-[100%]  border-[1px]">
+          <div className="h-[250px] w-[100%]  border-[0.5px]">
 
           </div>
-          <div className="h-[250px] w-[100%]  border-[1px]">
+          <div className="h-[250px] w-[100%]  border-[0.5px]">
 
           </div>
         
