@@ -1,19 +1,13 @@
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[87vh] px-2 sm:py-28 py-36 flex flex-col gap-4 items-center">
-      <div className="text-center flex flex-col items-center justify-center w-fit gap-2">
-        <h2 className="text-7xl font-bold pr-1">404</h2>
-        <p className="text-muted-foreground text-md font-medium">
-          Page not found {":("}
-        </p>
-        <p>Oops! The page you&apos;re looking for doesn&apos;t exist.</p>
-      </div>
-      <Link href="/" className={buttonVariants({})}>
-        Back to homepage
-      </Link>
+    <div className="min-h-[87vh] max-w-[80vw] border-x-[1px] px-2 mx-auto flex flex-col justify-center">
+        <h1 className="text-4xl font-bold md:text-center mx-0">Page Not Found</h1>
+        <p className="text-lg md:text-center">The page you are looking for does not exist.</p>
+        <Link href="/" className='bg-white text-black py-2 px-4 mt-4 md:mx-auto w-fit'>
+          Home page
+        </Link>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="border-x-[1px]">
-      <div className="w-[100%] h-[500px] border-b-[1px]">
+      <div className="w-[100%] h-[500px] border-b-[1px] flex flex-col items-center justify-center text-center px-4">
       <h1 className="sm:text-5xl text-3xl font-bold mb-4">
         Welcome to Dose3 Documentation
       </h1>
@@ -19,21 +19,31 @@ export default function Home() {
           Get Stared
         </Link>
       </div>
-      <div className="w-[100%] h-[500px] border-b-[1px]">
-      <h1 className="sm:text-5xl text-3xl font-bold mb-4">
-        Welcome to Dose3 Documentation
-      </h1>
-      <p className="sm:text-lg text-base text-muted-foreground mb-6">
-        Explore our comprehensive guides and resources to get started with Dose3.
-      </p>
-        <Link
-          href={`/docs${page_routes[0].href}`}
-          className={buttonVariants({ className: "px-6", size: "lg" })}
-        >
-          Get Stared
-        </Link>
-      </div>
+      <div className="w-[100%] h-[100%] border-b-[1px]">
+        <div className="flex flex-col sm:flex-row">
+          <div className="h-[350px] w-[100%] border-[1px]">
 
+          </div>
+          <div className="h-[350px] w-[100%]  border-[1px]">
+
+          </div>
+        
+        </div>
+      </div>
+      <div className="w-[100%] h-[100%] border-b-[1px]">
+        <div className="flex flex-col sm:flex-row">
+          <div className="h-[250px] w-[100%]  border-[1px]">
+
+          </div>
+          <div className="h-[250px] w-[100%]  border-[1px]">
+
+          </div>
+          <div className="h-[250px] w-[100%]  border-[1px]">
+
+          </div>
+        
+        </div>
+      </div>
     </div>
   );
 }

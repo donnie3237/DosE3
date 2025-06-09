@@ -14,7 +14,7 @@ import DocsMenu from "./docs-menu";
 
 export function Leftbar() {
   return (
-    <aside className="md:flex hidden w-[20rem] sticky top-16 flex-col h-[93.75vh] overflow-y-auto">
+    <aside className="md:flex hidden w-[20rem] scrollbar-none sticky top-16 flex-col h-[93.75vh] overflow-y-auto">
       <ScrollArea className="py-2 px-2">
         <DocsMenu />
       </ScrollArea>
@@ -26,7 +26,7 @@ export function SheetLeftbar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden flex">
+        <Button variant="ghost" size="icon" className="md:hidden flex" aria-label="Open menu">
           <AlignLeftIcon />
         </Button>
       </SheetTrigger>
