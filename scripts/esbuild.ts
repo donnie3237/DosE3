@@ -1,5 +1,5 @@
 const { build } = require("esbuild");
-const { dependencies, peerDependencies } = require("./package.json");
+const { dependencies, peerDependencies } = require("../package.json");
 const { Generator } = require("npm-dts");
 
 // Improved type definitions generation
@@ -27,7 +27,7 @@ const sharedConfig = {
       ...sharedConfig,
       platform: "node",
       format: "cjs",
-      outdir: "dist/cjs",
+      outdir: "dist",
       target: "es2022",
     });
     console.log("CJS build done");
