@@ -6,8 +6,8 @@ import { Cover } from "@/components/ui/cover";
 export default function Home() {
   return (
     <div className="border-x-[1px]">
-      <div className="h-[500px] relative w-full overflow-hidden bg-black flex flex-col items-center justify-center rounded-lg">
-      <div className="absolute inset-0 w-full h-full bg-black z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      <div className="h-[500px] relative w-full overflow-hidden  flex flex-col items-center justify-center rounded-lg">
+      <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
  
       <Boxes />
       <h1 className={cn("md:text-5xl text-2xl text-white font-extrabold relative z-20")}>

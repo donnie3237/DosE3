@@ -35,7 +35,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="relative h-8 w-16 border-l border-black"
+          className="relative h-8 w-16 border-l border-white"
         >
           {cols.map((_, j) => (
             <motion.div
