@@ -26,7 +26,12 @@ export function SheetLeftbar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden flex" aria-label="Open menu">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden flex"
+          aria-label="Open menu"
+        >
           <AlignLeftIcon />
         </Button>
       </SheetTrigger>

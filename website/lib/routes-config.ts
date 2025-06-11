@@ -75,7 +75,6 @@ export const ROUTES: EachRoute[] = [
   },
 ];
 
-
 type Page = { title: string; href: string };
 
 function getRecurrsiveAllLinks(node: EachRoute) {

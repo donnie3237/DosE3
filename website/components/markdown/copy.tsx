@@ -23,11 +23,9 @@ export default function Copy({ content }: { content: string }) {
       size="xs"
       onClick={handleCopy}
     >
-      {isCopied ? (
-        <CheckIcon className="w-3 h-3" />
-      ) : (
-        <CopyIcon className="w-3 h-3" />
-      )}
+      {isCopied
+        ? <CheckIcon className="w-3 h-3" />
+        : <CopyIcon className="w-3 h-3" />}
     </Button>
   );
 }

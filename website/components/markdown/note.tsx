@@ -26,7 +26,7 @@ export default function Note({
     <div
       className={cn(
         "border rounded-md px-5 mt-5 mb-7 text-sm tracking-wide",
-        noteClassNames
+        noteClassNames,
       )}
     >
       <p className="font-bold">{title}:</p>

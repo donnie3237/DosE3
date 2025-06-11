@@ -1,4 +1,4 @@
-import { GithubIcon, TwitterIcon, CommandIcon } from "lucide-react";
+import { CommandIcon, GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
@@ -11,8 +11,7 @@ interface NavLink {
   href: string;
 }
 
-export const NAVLINKS : NavLink[] = [
-];
+export const NAVLINKS: NavLink[] = [];
 
 const algolia_props = {
   appId: process.env.ALGOLIA_APP_ID!,
@@ -47,7 +46,10 @@ export function Navbar() {
                   size: "icon",
                 })}
               >
-                <GithubIcon className="h-[1.1rem] w-[1.1rem]" aria-label="github-link" />
+                <GithubIcon
+                  className="h-[1.1rem] w-[1.1rem]"
+                  aria-label="github-link"
+                />
               </Link>
               <Link
                 href="https://x.com/Ksfdd1"
@@ -56,7 +58,10 @@ export function Navbar() {
                   size: "icon",
                 })}
               >
-                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" aria-label="twitter-link"/>
+                <TwitterIcon
+                  className="h-[1.1rem] w-[1.1rem]"
+                  aria-label="twitter-link"
+                />
               </Link>
             </div>
           </div>
@@ -90,13 +95,13 @@ export function NavMenu({ isSheet = false }) {
             {item.title}
           </Anchor>
         );
-        return isSheet ? (
-          <SheetClose key={item.title + item.href} asChild>
-            {Comp}
-          </SheetClose>
-        ) : (
-          Comp
-        );
+        return isSheet
+          ? (
+            <SheetClose key={item.title + item.href} asChild>
+              {Comp}
+            </SheetClose>
+          )
+          : Comp;
       })}
     </>
   );

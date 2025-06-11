@@ -12,6 +12,9 @@ async function main(): Promise<void> {
   if (args.includes("update")) {
     await runCommand("npm install -g dose3@latest");
     console.log("update finished!!");
+  } else if (args.includes("fmt")) {
+    console.log("work in progress try again later");
+    await runCommand("deno fmt");
   } else if (args.includes("-v") || args.includes("--version")) {
     console.log(packageModule.version);
   } else if (args.includes("scan")) {

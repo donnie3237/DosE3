@@ -26,10 +26,11 @@ export default function Anchor({
 
   if (props.href.toString().includes("http")) isMatch = false;
 
-  if (disabled)
+  if (disabled) {
     return (
       <div className={cn(className, "cursor-not-allowed")}>{children}</div>
     );
+  }
   return (
     <Link className={cn(className, isMatch && activeClassName)} {...props}>
       {children}

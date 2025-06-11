@@ -7,9 +7,7 @@ export default async function Outlet({ path }: { path: string }) {
 
   return (
     <div className="grid md:grid-cols-2 gap-5">
-      {output.map((child) => (
-        <ChildCard {...child} key={child.title} />
-      ))}
+      {output.map((child) => <ChildCard {...child} key={child.title} />)}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { getDocsTocs } from "@/lib/markdown";
 import clsx from "clsx";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = { data: Awaited<ReturnType<typeof getDocsTocs>> };
 

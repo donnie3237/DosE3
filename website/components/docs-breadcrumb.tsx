@@ -20,15 +20,20 @@ export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
             <Fragment key={path}>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                {index < paths.length - 1 ? (
-                  <BreadcrumbLink className="a" href={`/docs/${paths.slice(0, index + 1).join("/")}`}>
-                    {toTitleCase(path)}
-                  </BreadcrumbLink>
-                ) : (
-                  <BreadcrumbPage className="b">
-                    {toTitleCase(path)}
-                  </BreadcrumbPage>
-                )}
+                {index < paths.length - 1
+                  ? (
+                    <BreadcrumbLink
+                      className="a"
+                      href={`/docs/${paths.slice(0, index + 1).join("/")}`}
+                    >
+                      {toTitleCase(path)}
+                    </BreadcrumbLink>
+                  )
+                  : (
+                    <BreadcrumbPage className="b">
+                      {toTitleCase(path)}
+                    </BreadcrumbPage>
+                  )}
               </BreadcrumbItem>
             </Fragment>
           ))}
@@ -41,7 +46,7 @@ export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
 function toTitleCase(input: string): string {
   const words = input.split("-");
   const capitalizedWords = words.map(
-    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+    (word) => word.charAt(0).toUpperCase() + word.slice(1),
   );
   return capitalizedWords.join(" ");
 }

@@ -38,18 +38,23 @@ function File({ name, highlight, indicator }: FileType) {
     <div
       className={cn(
         "flex items-center gap-1.5 w-full hover:dark:bg-neutral-900 hover:bg-neutral-100 px-3 py-1 rounded-md relative",
-        highlight && "dark:text-blue-400 text-blue-500"
+        highlight && "dark:text-blue-400 text-blue-500",
       )}
     >
-      {hasSupportedExtension(name) ? (
-        <i
-          className={`devicon-${getIconName(
-            name
-          )}-plain text-[17px] mr-[0.14rem]`}
-        ></i>
-      ) : (
-        <FileIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem] text-current" />
-      )}
+      {hasSupportedExtension(name)
+        ? (
+          <i
+            className={`devicon-${
+              getIconName(
+                name,
+              )
+            }-plain text-[17px] mr-[0.14rem]`}
+          >
+          </i>
+        )
+        : (
+          <FileIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem] text-current" />
+        )}
 
       <div className="sm:text-[15px] text-[13.5px]">
         {name}
@@ -60,7 +65,7 @@ function File({ name, highlight, indicator }: FileType) {
               indicator == "delete" &&
                 "dark:text-red-400 text-red-500 bg-red-400/10",
               indicator == "add" &&
-                "dark:text-green-400 text-green-500 bg-green-400/10"
+                "dark:text-green-400 text-green-500 bg-green-400/10",
             )}
           >
             {indicator == "delete" ? "remove" : "add"}
@@ -93,15 +98,17 @@ function Folder({
       <div
         className={cn(
           "cursor-pointer flex items-center gap-1.5 w-full hover:dark:bg-neutral-900 hover:bg-neutral-00 px-3 py-1 rounded-md",
-          highlight && "dark:text-blue-400 text-blue-500"
+          highlight && "dark:text-blue-400 text-blue-500",
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? (
-          <FolderOpenIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
-        ) : (
-          <FolderIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
-        )}
+        {isOpen
+          ? (
+            <FolderOpenIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
+          )
+          : (
+            <FolderIcon className="sm:min-w-[1.2rem] sm:min-h-[1.2rem] sm:w-[1.2rem] sm:h-[1.2rem] min-w-[1rem] min-h-[1rem] w-[1rem] h-[1rem]" />
+          )}
         <div className="sm:text-[15px] text-[13.5px]">
           {name}
           {indicator && (
@@ -111,7 +118,7 @@ function Folder({
                 indicator == "delete" &&
                   "dark:text-red-400 text-red-500 bg-red-400/10",
                 indicator == "add" &&
-                  "dark:text-green-400 text-green-500 bg-green-400/10"
+                  "dark:text-green-400 text-green-500 bg-green-400/10",
               )}
             >
               {indicator == "delete" ? "remove" : "add"}
