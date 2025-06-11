@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/footer";
@@ -49,6 +50,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
@@ -70,11 +72,18 @@ export default function RootLayout({
         className={`${inter.variable} font-regular antialiased tracking-wide`}
         suppressHydrationWarning
       >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
             {children}
           </main>
           <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

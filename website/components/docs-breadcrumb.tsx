@@ -21,7 +21,7 @@ export default function DocsBreadcrumb({ paths }: { paths: string[] }) {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 {index < paths.length - 1 ? (
-                  <BreadcrumbLink className="a">
+                  <BreadcrumbLink className="a" href={`/docs/${paths.slice(0, index + 1).join("/")}`}>
                     {toTitleCase(path)}
                   </BreadcrumbLink>
                 ) : (
