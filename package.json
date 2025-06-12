@@ -1,6 +1,6 @@
 {
   "name": "dose3",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "dose3 is a starter kit for building desktop applications using Tauri, Express, Svelte, React, Hono, Astro, and Next.js. It provides a simple and efficient way to create cross-platform applications with a modern tech stack.",
   "main": "./src/index.ts",
   "bin": {
@@ -13,7 +13,7 @@
   },
   "author": "SoRa",
   "files": [
-    "dist/cjs",
+    "dist",
     "readme.md",
     "licence.md"
   ],
