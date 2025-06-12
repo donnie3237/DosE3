@@ -1,4 +1,172 @@
 ---
 title: Svelte
-description: A Svelte page in my new dose3 docs site.
+description: Svelte is a frontend framework that compiles your code to highly efficient JavaScript at build time. It eliminates the need for a virtual DOM, resulting in faster performance and smaller bundle sizes.
 ---
+
+## Structure
+
+<Files
+  items={[
+    {
+      type: "folder",
+      name: "src",
+      children: [
+        { type: "file", name: "main.ts" },
+        { type: "file", name: "app.css" },
+        {
+          type: "folder",
+          name: "lib",
+          children: [
+            { type: "file", name: "Navbar.svelte" },
+            { type: "file", name: "Footer.svelte" },
+          ],
+        },
+        {
+          type: "folder",
+          name: "routes",
+          children: [
+            { type: "file", name: "+page.svelte" },
+            { type: "file", name: "about/+page.svelte" },
+          ],
+        },
+        {
+          type: "folder",
+          name: "api",
+          children: [{ type: "file", name: "getData.ts" }],
+        },
+        {
+          type: "folder",
+          name: "store",
+          children: [{ type: "file", name: "global.ts" }],
+        },
+        {
+          type: "folder",
+          name: "types",
+          children: [{ type: "file", name: "main.d.ts" }],
+        },
+        {
+          type: "folder",
+          name: "utils",
+          children: [{ type: "file", name: "copy.ts" }],
+        },
+      ],
+    },
+    {
+      type: "folder",
+      name: "tests",
+      children: [{ type: "file", name: "main.test.ts" }],
+    },
+    { type: "file", name: "package.json" },
+    { type: "file", name: "tsconfig.json" },
+    { type: "file", name: "svelte.config.js" },
+  ]}
+/>
+
+
+
+### `api/`
+Contains API functions.
+
+```ts
+import { ApiURL } from './ApiURL';
+import type { Stack } from '../types/main';
+
+export async function getData(): Promise<Stack[]> {
+  const res = await fetch(ApiURL);
+  return await res.json();
+}
+```
+
+
+
+### `store/`
+Manages global state using Svelte's store system.
+
+```ts
+import { writable } from 'svelte/store';
+
+export const counter = writable(0);
+```
+
+
+
+### `types/`
+Defines TypeScript interfaces.
+
+```ts
+export interface Person {
+  name: string;
+  age: number;
+}
+```
+
+
+
+### `utils/`
+Contains utility functions.
+
+```ts
+export function copy(text: string): void {
+  navigator.clipboard.writeText(text);
+}
+```
+
+
+
+### `lib/`
+Reusable components such as Navbar and Footer.
+
+```ts
+<script>
+  export let title: string;
+</script>
+
+<header>{title}</header>
+```
+
+
+
+### `routes/`
+File-based routing using SvelteKit.
+
+- `/src/routes/+page.svelte` → `/`
+- `/src/routes/about/+page.svelte` → `/about`
+
+
+
+### `tests/`
+Unit testing with Vitest.
+
+```ts
+import { describe, it, expect } from 'vitest';
+
+describe('Basic math', () => {
+  it('adds', () => {
+    expect(2 + 2).toBe(4);
+  });
+});
+```
+
+
+
+## Migration Tools
+
+### ✅ Vitest
+Used for unit testing.  
+🔗 [https://vitest.dev](https://vitest.dev)
+
+```bash title="run unit test"
+npm run test
+```
+
+
+
+### ✅ Svelte Store
+Used for state management in Svelte.  
+🔗 [https://svelte.dev/docs/store](https://svelte.dev/docs/store)
+
+```ts
+import { writable } from 'svelte/store';
+
+export const isDarkMode = writable(false);
+```

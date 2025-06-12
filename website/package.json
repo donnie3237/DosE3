@@ -18,6 +18,7 @@
     "@radix-ui/react-scroll-area": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
+    "@react-three/fiber": "^9.0.0-alpha.8",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
@@ -39,6 +40,7 @@
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.177.0",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
@@ -46,6 +48,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^19",
+    "@types/three": "^0.177.0",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "postcss": "^8",

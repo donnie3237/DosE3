@@ -51,7 +51,7 @@ export const ROUTES: EachRoute[] = [
     href: "/more",
     noLink: true,
     items: [
-      { title: "Slidev", href: "/slidev" },
+      { title: "Turbo", href: "/turbo" },
       { title: "Typescript", href: "/typescript" },
     ],
   },
