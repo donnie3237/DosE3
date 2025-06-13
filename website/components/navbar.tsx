@@ -46,8 +46,9 @@ export function Navbar() {
                   variant: "ghost",
                   size: "icon",
                 })}
+                aria-label="github link"
               >
-                <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
+                <GithubIcon className="h-[1.1rem] w-[1.1rem]" aria-label="github link"/>
               </Link>
               <Link
                 href="https://x.com/Ksfdd1"
@@ -55,8 +56,9 @@ export function Navbar() {
                   variant: "ghost",
                   size: "icon",
                 })}
+                aria-label="twitter link"
               >
-                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" />
+                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" aria-label="twitter link"/>
               </Link>
             </div>
           </div>
