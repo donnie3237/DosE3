@@ -1,21 +1,22 @@
-import { CommandIcon, GithubIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon, TwitterIcon} from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
 import { SheetClose } from "@/components/ui/sheet";
 import AlgoliaSearch from "./algolia-search";
-
+import Image from "next/image";
 interface NavLink {
   title: string;
   href: string;
 }
 
-export const NAVLINKS: NavLink[] = [];
+export const NAVLINKS : NavLink[] = [
+];
 
 const algolia_props = {
   appId: process.env.ALGOLIA_APP_ID!,
-  indexName: process.env.ALGOLIA_INDEX!,
+  indexName: process.env.ALGOLIA_APP_ID!,
   apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
 };
 
@@ -46,10 +47,7 @@ export function Navbar() {
                   size: "icon",
                 })}
               >
-                <GithubIcon
-                  className="h-[1.1rem] w-[1.1rem]"
-                  aria-label="github-link"
-                />
+                <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
                 href="https://x.com/Ksfdd1"
@@ -58,10 +56,7 @@ export function Navbar() {
                   size: "icon",
                 })}
               >
-                <TwitterIcon
-                  className="h-[1.1rem] w-[1.1rem]"
-                  aria-label="twitter-link"
-                />
+                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
             </div>
           </div>
@@ -74,7 +69,13 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
+      <Image
+        src="/dose.svg"
+        alt="dossware logo"
+        width={30}
+        height={30}
+        className="invert dark:invert-0"
+      />
       <h2 className="text-md font-bold font-code">Dose3</h2>
     </Link>
   );
@@ -95,13 +96,13 @@ export function NavMenu({ isSheet = false }) {
             {item.title}
           </Anchor>
         );
-        return isSheet
-          ? (
-            <SheetClose key={item.title + item.href} asChild>
-              {Comp}
-            </SheetClose>
-          )
-          : Comp;
+        return isSheet ? (
+          <SheetClose key={item.title + item.href} asChild>
+            {Comp}
+          </SheetClose>
+        ) : (
+          Comp
+        );
       })}
     </>
   );
