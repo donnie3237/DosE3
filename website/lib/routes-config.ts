@@ -32,7 +32,7 @@ export const ROUTES: EachRoute[] = [
     href: "/server",
     noLink: true,
     items: [
-      { title: "ExpressJS", href: "/expressjs" },
+      { title: "ExpressJS", href: "/express" },
       { title: "Hono", href: "/hono" },
       { title: "Gin", href: "/gin" },
     ],

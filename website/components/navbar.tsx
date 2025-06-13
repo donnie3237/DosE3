@@ -74,7 +74,7 @@ export function Logo() {
         alt="dossware logo"
         width={30}
         height={30}
-        className="invert dark:invert-0"
+        className="invert"
       />
       <h2 className="text-md font-bold font-code">Dose3</h2>
     </Link>
