@@ -1,0 +1,43 @@
+---
+title: Kill port
+description: Managing open ports on your development machine is crucial, especially when switching between projects or debugging port conflicts. Sometimes, a process might still be using a port you need, and restarting your computer isn't always the fastest option.
+---
+
+To solve this problem, `dose3` includes a helpful CLI command: `dose kill`.
+
+## CLI
+
+You can use the following command to terminate the process that is using a specific port:
+
+```shell
+dose kill {your port}
+```
+
+Replace `{your port}` with the actual port number you want to close.
+
+## What is this?
+
+If you're running multiple services and forget which one is using a specific port, or you simply want to free up a port quickly, `dose kill` is here to help.
+
+This command automatically finds the process bound to the given port and terminates it. Here is an example of how it works:
+
+```shell
+$ dose kill 3000
+  Closed port 3000
+```
+
+## Use Cases
+
+- Freeing up ports when switching between projects
+- Stopping a development server that didn’t shut down properly
+- Cleaning up unused ports before starting new services
+
+## Best Practices
+
+- Make sure you’re not killing critical system processes—use this for development ports only.
+- Double-check the port number before running the command.
+- Use `dose scan` beforehand if you're not sure which ports are open.
+
+---
+
+This tool is part of the `dose3` CLI suite, designed to help developers manage local environments efficiently and avoid common pitfalls.

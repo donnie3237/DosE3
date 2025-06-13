@@ -66,7 +66,7 @@ export const ROUTES: EachRoute[] = [
   },
   {
     title: "Network Port",
-    href: "/network-port",
+    href: "/port",
     noLink: true,
     items: [
       { title: "scan", href: "/scan" },

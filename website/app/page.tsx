@@ -1,3 +1,4 @@
+"use client"
 import { page_routes } from "@/lib/routes-config";
 import Link from "next/link";
 import { Cover } from "@/components/ui/cover";
@@ -10,12 +11,15 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
+  function copyToClipboard(){
+    navigator.clipboard.writeText("npm i -g dose3@latest")
+  }
   return (
     <div className="border-x-[1px]">
       <div
         style={{
           backgroundImage:
-            "repeating-linear-gradient(-45deg, #0f0f0f 0px, #0f0f0f 10px, #080808 10px, #080808 20px)",
+        "repeating-linear-gradient(-45deg, #050505 0px, #050505 10px, #080808 10px, #080808 20px)",
         }}
         className="w-full h-[500px] border-b flex flex-col items-center justify-center text-center px-4"
       >
@@ -26,13 +30,31 @@ export default function Home() {
           Explore our comprehensive guides and resources to get started with
           Dose3.
         </p>
+        <div className="flex flex-col items-center mb-4">
+          <div className="relative">
+            <code className="bg-black text-white px-4 py-2 rounded pr-10">
+              npm i -g dose3@latest
+            </code>
+            <button
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+              onClick={copyToClipboard}
+              type="button"
+              aria-label="Copy"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <rect x="3" y="3" width="13" height="13" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+              </svg>
+            </button>
+          </div>
+        </div>
         <Link
           href={`/docs${page_routes[0].href}`}
           className="bg-white text-black py-3 px-5"
         >
           Get Started
         </Link>
-      </div> 
+      </div>
 
         <div className="w-[100%] h-[100%] border-b-[1px]">
         <div className="flex flex-col sm:flex-row">

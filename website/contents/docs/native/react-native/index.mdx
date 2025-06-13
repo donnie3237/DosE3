@@ -1,0 +1,73 @@
+---
+title: React Native
+description: React Native enables you to build native mobile apps using JavaScript and React. It's widely used for developing cross-platform mobile apps for iOS and Android.
+---
+
+## Structure
+
+<Files
+  items={[
+    { type: "file", name: "App.tsx" },
+    { type: "file", name: "index.js" },
+    {
+      type: "folder",
+      name: "components",
+      children: [
+        { type: "file", name: "Button.tsx" },
+        { type: "file", name: "Card.tsx" },
+      ],
+    },
+    {
+      type: "folder",
+      name: "screens",
+      children: [
+        { type: "file", name: "HomeScreen.tsx" },
+        { type: "file", name: "DetailScreen.tsx" },
+      ],
+    },
+    {
+      type: "folder",
+      name: "navigation",
+      children: [{ type: "file", name: "AppNavigator.tsx" }],
+    },
+    { type: "file", name: "package.json" },
+    { type: "file", name: "tsconfig.json" },
+  ]}
+/>
+
+### `components/`
+Reusable UI components.
+
+### `screens/`
+Defines screen components for routing.
+
+### `navigation/`
+Handles screen navigation.
+
+### ✅ Navigation Example
+
+```ts
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+export default function AppNavigator() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+```
+
+### 🛠️ Run App
+
+```bash
+npx react-native run-android
+# or
+npx react-native run-ios
+```
