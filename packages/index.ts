@@ -4,6 +4,7 @@ import { runCommand } from "./runCommand.ts";
 import { choices, packageModule } from "./config.ts";
 import * as p from "@clack/prompts";
 import { kill, scan } from "./port.ts";
+import { showDirTable } from "./lsfile.ts";
 
 const args = process.argv.slice(2);
 const args2 = process.argv.slice(3);
@@ -21,6 +22,10 @@ async function main(): Promise<void> {
     scan();
   } else if (args.includes("kill")) {
     kill(args2[0]);
+  } else if (args.includes("ls")) {
+    await showDirTable(".", 0)
+  } else if (args.includes("ls2")) {
+    showDirTable(".", 1)
   } else {
     const group: any = await p.group(
       {
