@@ -74,7 +74,13 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <Image src='dose.svg' alt={"dose logo"}/>
+      <Image
+        src="/dose.svg"
+        alt="dossware logo"
+        width={30}
+        height={30}
+        className="invert"
+      />
       <h2 className="text-md font-bold font-code">Dose3</h2>
     </Link>
   );
