@@ -16,16 +16,6 @@ pub fn check_dependencies() {
     }
 }
 
-pub fn ls_file(){
-    match fs::read_dir(".") {
-            Ok(entries) => {
-                for entry in entries.flatten() {
-                    println!("{}", entry.file_name().to_string_lossy());
-                }
-            }
-            Err(e) => eprintln!("Error reading directory: {}", e),
-    }
-}
 pub fn clone_repo(repo_url: &str, target_directory: &str) -> bool {
     let pb = ProgressBar::new_spinner();
     pb.set_message("Cloning repository...");

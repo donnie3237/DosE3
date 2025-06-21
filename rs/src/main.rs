@@ -3,22 +3,39 @@ mod prompt;
 mod framework;
 mod git;
 mod vscode;
+mod ls;
+mod port;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let matches = cli::get_cli_args();
 
-    if let Some(arg) = matches.get_one::<String>("arg") {
-        match arg.as_str() {
-            "check" => {
-                git::check_dependencies();
-                return;
-            }
-            "ls" => {
-                git::ls_file();
-                return;
-            }
-            _ => {}
+    match matches.subcommand() {
+    Some(("check", _)) => {
+        git::check_dependencies();
+        return;
+    }
+    Some(("ls", _)) => {
+        ls::ls_file();
+        return;
+    }
+    Some(("ls2", _)) => {
+        ls::ls_file_recursive();
+        return;
+    }
+    Some(("scan", _)) => {
+        port::async_scan_ports(1, 65535).await;
+        return;
+    }
+    Some(("kill", sub_m)) => {
+        if let Some(port) = sub_m.get_one::<u16>("port") {
+            port::kill_port(*port);
+        } else {
+            eprintln!("❌ Please specify a port to kill.");
         }
+        return;
+    }
+    _ => {} // ถ้าไม่ใส่ subcommand ก็รันแบบปกติ
     }
     
     let name = prompt::ask_name();
