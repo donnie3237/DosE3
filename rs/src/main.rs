@@ -5,6 +5,7 @@ mod git;
 mod vscode;
 mod ls;
 mod port;
+mod status;
 
 #[tokio::main]
 async fn main() {
@@ -33,6 +34,10 @@ async fn main() {
         } else {
             eprintln!("❌ Please specify a port to kill.");
         }
+        return;
+    }
+    Some(("sys", _)) => {
+        status::show_status();
         return;
     }
     _ => {} // ถ้าไม่ใส่ subcommand ก็รันแบบปกติ

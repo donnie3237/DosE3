@@ -34,5 +34,9 @@ pub fn get_cli_args() -> clap::ArgMatches {
                         .value_parser(clap::value_parser!(u16)),
                 ),
         )
+        .subcommand(
+            Command::new("sys")
+                .about("🖥️ Show system status"),
+        )
         .get_matches()
 }
