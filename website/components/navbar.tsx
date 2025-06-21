@@ -1,4 +1,4 @@
-import { GithubIcon, TwitterIcon} from "lucide-react";
+import {GithubIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Anchor from "./anchor";
@@ -11,12 +11,11 @@ interface NavLink {
   href: string;
 }
 
-export const NAVLINKS : NavLink[] = [
-];
+export const NAVLINKS: NavLink[] = [];
 
 const algolia_props = {
   appId: process.env.ALGOLIA_APP_ID!,
-  indexName: process.env.ALGOLIA_APP_ID!,
+  indexName: process.env.ALGOLIA_INDEX!,
   apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
 };
 
@@ -46,9 +45,11 @@ export function Navbar() {
                   variant: "ghost",
                   size: "icon",
                 })}
-                aria-label="github link"
               >
-                <GithubIcon className="h-[1.1rem] w-[1.1rem]" aria-label="github link"/>
+                <GithubIcon
+                  className="h-[1.1rem] w-[1.1rem]"
+                  aria-label="github-link"
+                />
               </Link>
               <Link
                 href="https://x.com/Ksfdd1"
@@ -56,9 +57,11 @@ export function Navbar() {
                   variant: "ghost",
                   size: "icon",
                 })}
-                aria-label="twitter link"
               >
-                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" aria-label="twitter link"/>
+                <TwitterIcon
+                  className="h-[1.1rem] w-[1.1rem]"
+                  aria-label="twitter-link"
+                />
               </Link>
             </div>
           </div>
@@ -71,13 +74,7 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <Image
-        src="/dose.svg"
-        alt="dossware logo"
-        width={30}
-        height={30}
-        className="invert"
-      />
+      <Image src='dose.svg' alt={"dose logo"}/>
       <h2 className="text-md font-bold font-code">Dose3</h2>
     </Link>
   );
@@ -98,13 +95,13 @@ export function NavMenu({ isSheet = false }) {
             {item.title}
           </Anchor>
         );
-        return isSheet ? (
-          <SheetClose key={item.title + item.href} asChild>
-            {Comp}
-          </SheetClose>
-        ) : (
-          Comp
-        );
+        return isSheet
+          ? (
+            <SheetClose key={item.title + item.href} asChild>
+              {Comp}
+            </SheetClose>
+          )
+          : Comp;
       })}
     </>
   );

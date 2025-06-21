@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
-import runCLI from "../src/index.ts";
-import * as commands from "../src/runCommand.ts";
+import runCLI from "../packages/index.ts";
+import * as commands from "../packages/runCommand.ts";
 import * as prompts from "@clack/prompts";
-import * as port from "../src/port";
-import { packageModule } from "../src/config";
+import * as port from "../packages/port.ts";
+import { packageModule } from "../packages/config.ts";
 
 describe("CLI tool", () => {
   it("should run update command", async () => {
