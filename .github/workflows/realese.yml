@@ -1,8 +1,5 @@
-# .github/workflows/release.yml
-
 name: Release
 
-# ทำงานเมื่อมีการ push tag ใหม่ที่ขึ้นต้นด้วย 'v' เช่น v0.1.0, v1.2.3
 on:
   push:
     tags:
@@ -11,7 +8,6 @@ on:
 jobs:
   build_and_upload:
     name: Build and Upload Binaries
-    # ใช้ Matrix Strategy เพื่อรันบน OS ที่แตกต่างกัน
     strategy:
       matrix:
         include:
@@ -27,6 +23,10 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    defaults:
+      run:
+        working-directory: ./rs
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,11 +39,10 @@ jobs:
 
       - name: Build binary
         run: cargo build --release --target ${{ matrix.target }}
-        # สำหรับ linux เราอาจต้องติดตั้ง build-essential
         if: runner.os != 'Linux'
       - name: Build binary (Linux)
         run: |
-          sudo apt-get update && sudo apt-get install -y build-essential
+          # sudo apt-get update && sudo apt-get install -y build-essential
           cargo build --release --target ${{ matrix.target }}
         if: runner.os == 'Linux'
 
@@ -57,7 +56,7 @@ jobs:
       - name: Package binary (Linux/macOS)
         if: matrix.os != 'windows-latest'
         run: |
-          $exe_name = "dose3"
+          $exe_name = "dose3" # แก้ไขเป็นชื่อโปรแกรมของคุณ
           $source_path = "target/${{ matrix.target }}/release/$exe_name"
           tar -czvf "${{ matrix.asset_name }}" -C "target/${{ matrix.target }}/release/" $exe_name
 
@@ -65,7 +64,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./${{ matrix.asset_name }}
+
+          asset_path: ./rs/${{ matrix.asset_name }}
           asset_name: ${{ matrix.asset_name }}
           asset_content_type: application/octet-stream
         env:
