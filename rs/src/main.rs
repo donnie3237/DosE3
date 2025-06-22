@@ -6,6 +6,8 @@ mod vscode;
 mod ls;
 mod port;
 mod status;
+mod deps;
+mod fmt;
 
 #[tokio::main]
 async fn main() {
@@ -40,26 +42,36 @@ async fn main() {
         status::show_status();
         return;
     }
+    Some(("deps", _)) => {
+        deps::check_dependencies(".");
+        return;
+    }
+    Some(("fmt", _)) => {
+        fmt::format_code();
+        return;
+    }
+    Some(("init", _)) => {  
+        let name = prompt::ask_name();
+        println!("Hello, {}!", name);
+
+        let frameworks = framework::get_frameworks();
+        let names: Vec<&str> = frameworks.iter().map(|(name, _)| *name).collect();
+        let selected = prompt::ask_framework(&names);
+
+        if let Some((_, repo_url)) = frameworks.iter().find(|(n, _)| *n == selected) {
+            if git::clone_repo(repo_url, &name) {
+                let action = prompt::ask_action();
+                if action == "Open in VSCode" {
+                    vscode::open_in_vscode(&name);
+                } else {
+                    println!("✅ Process completed. Have a nice day!");
+                }
+            }
+        } else {
+            eprintln!("❌ Framework not found!");
+        }
+    }
     _ => {} // ถ้าไม่ใส่ subcommand ก็รันแบบปกติ
     }
-    
-    let name = prompt::ask_name();
-    println!("Hello, {}!", name);
 
-    let frameworks = framework::get_frameworks();
-    let names: Vec<&str> = frameworks.iter().map(|(name, _)| *name).collect();
-    let selected = prompt::ask_framework(&names);
-
-    if let Some((_, repo_url)) = frameworks.iter().find(|(n, _)| *n == selected) {
-        if git::clone_repo(repo_url, &name) {
-            let action = prompt::ask_action();
-            if action == "Open in VSCode" {
-                vscode::open_in_vscode(&name);
-            } else {
-                println!("✅ Process completed. Have a nice day!");
-            }
-        }
-    } else {
-        eprintln!("❌ Framework not found!");
-    }
 }

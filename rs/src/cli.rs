@@ -38,5 +38,9 @@ pub fn get_cli_args() -> clap::ArgMatches {
             Command::new("sys")
                 .about("🖥️ Show system status"),
         )
+        .subcommand(
+            Command::new("deps")
+            .about("🔧 Check dependencies like Git and Node.js")
+        )
         .get_matches()
 }
