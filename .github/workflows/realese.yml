@@ -39,32 +39,24 @@ jobs:
 
       - name: Build binary
         run: cargo build --release --target ${{ matrix.target }}
-        if: runner.os != 'Linux'
-      - name: Build binary (Linux)
-        run: |
-          # sudo apt-get update && sudo apt-get install -y build-essential
-          cargo build --release --target ${{ matrix.target }}
-        if: runner.os == 'Linux'
 
       - name: Package binary (Windows)
         if: matrix.os == 'windows-latest'
         run: |
-          $exe_name = "dose3.exe" # แก้ไขเป็นชื่อโปรแกรมของคุณ
+          $exe_name = "dose3.exe"
           $source_path = "target/${{ matrix.target }}/release/$exe_name"
           Compress-Archive -Path $source_path -DestinationPath "${{ matrix.asset_name }}"
       
       - name: Package binary (Linux/macOS)
         if: matrix.os != 'windows-latest'
         run: |
-          $exe_name = "dose3" # แก้ไขเป็นชื่อโปรแกรมของคุณ
-          $source_path = "target/${{ matrix.target }}/release/$exe_name"
-          tar -czvf "${{ matrix.asset_name }}" -C "target/${{ matrix.target }}/release/" $exe_name
+          exe_name="dose3"  
+          tar -czvf "${{ matrix.asset_name }}" -C "target/${{ matrix.target }}/release/" "$exe_name"
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-
           asset_path: ./rs/${{ matrix.asset_name }}
           asset_name: ${{ matrix.asset_name }}
           asset_content_type: application/octet-stream
