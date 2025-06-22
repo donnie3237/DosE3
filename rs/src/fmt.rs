@@ -1,103 +1,99 @@
+// src/fmt.rs (เวอร์ชั่นตรวจสอบ Filter)
+
+use anyhow::Result;
+use std::fs;
 use std::path::Path;
-use tokio::fs;
-use walkdir::WalkDir;
+use walkdir::{DirEntry, WalkDir};
 
-use swc_common::{sync::Lrc, SourceMap};
-use swc_ecma_parser::{Parser, StringInput, Syntax, TsConfig};
-use swc_ecma_codegen::{Emitter, text_writer::JsWriter};
-use std::io::BufWriter;
+// --- Import ทั้งหมดเหมือนเดิม ---
+use dprint_plugin_typescript::configuration::Configuration as TypeScriptConfiguration;
+use dprint_plugin_typescript::configuration::ConfigurationBuilder as TypeScriptConfigurationBuilder;
+use dprint_plugin_typescript::FormatTextOptions;
+use dprint_plugin_json::configuration::ConfigurationBuilder as JsonConfigurationBuilder;
+use dprint_plugin_json::format_text as format_json_text;
+use dprint_plugin_css::configuration::Configuration as CssConfiguration;
+use dprint_plugin_css::configuration::ConfigurationBuilder as CssConfigurationBuilder;
+use dprint_plugin_css::format_text as format_css_text;
 
-use serde_json;
-use parcel_css::stylesheet::{ParserOptions, PrinterOptions, StyleSheet};
+pub fn format_project_programmatically(start_path: &str) -> Result<()> {
+    println!("Starting formatting process with filter diagnostics...");
 
-use html5ever::parse_document;
-use html5ever::serialize::{serialize, SerializeOpts};
-use markup5ever_rcdom::{RcDom, SerializableHandle};
-use std::default::Default;
-
-pub async fn format_all_code_in_path_async<P: AsRef<Path>>(root_path: P) -> Result<(), Box<dyn std::error::Error>> {
-    let root = root_path.as_ref();
-
-    // WalkDir ยังไม่ async แต่ไม่ค่อยช้าเท่าไหร่
-    for entry in WalkDir::new(root)
+    let walker = WalkDir::new(start_path)
         .into_iter()
-        .filter_map(Result::ok)
-        .filter(|e| e.file_type().is_file())
-        .filter(|e| !e.path().components().any(|c| c.as_os_str() == "node_modules"))
-    {
-        let path = entry.path();
-        let filename = path.to_str().unwrap_or_default();
+        .filter_entry(|entry| {
+            // --- เพิ่ม Log เพื่อดูการตัดสินใจของ Filter ---
+            let is_skipped = is_skipped_dir(entry);
+            println!("[FILTER] Evaluating: {:?}. -> Should Skip? {}", entry.path(), is_skipped);
+            // คืนค่า !is_skipped เพื่อให้ filter ทำงาน
+            // ถ้า is_skipped เป็น true, !true คือ false -> กรองออก
+            // ถ้า is_skipped เป็น false, !false คือ true -> เก็บไว้
+            !is_skipped
+        });
 
-        if let Some(ext) = path.extension().and_then(|s| s.to_str()) {
-            let ext_lower = ext.to_lowercase();
-
-            if matches!(ext_lower.as_str(), "js" | "ts" | "tsx" | "jsx" | "json" | "css" | "html" | "htm") {
-                // อ่านไฟล์แบบ async
-                let code = fs::read_to_string(path).await?;
-                let formatted = match ext_lower.as_str() {
-                    "js" | "ts" | "tsx" | "jsx" => {
-                        let cm: Lrc<SourceMap> = Default::default();
-                        let fm = cm.new_source_file(Default::default(), code.into());
-
-                        let lexer = swc_ecma_parser::lexer::Lexer::new(
-                            Syntax::Typescript(TsConfig { tsx: ext_lower == "tsx" || ext_lower == "jsx", ..Default::default() }),
-                            Default::default(),
-                            StringInput::from(&*fm),
-                            None,
-                        );
-
-                        let mut parser = Parser::new_from(lexer);
-                        let module = parser.parse_module()?;
-
-                        let mut buf = Vec::new();
-                        {
-                            let wr = Box::new(BufWriter::new(&mut buf));
-                            let mut emitter = Emitter {
-                                cfg: swc_ecma_codegen::Config { minify: false },
-                                comments: None,
-                                cm: cm.clone(),
-                                wr,
-                            };
-                            emitter.emit_module(&module)?;
+    let mut formatted_count = 0;
+    for entry in walker {
+        match entry {
+            Ok(dir_entry) => {
+                if dir_entry.file_type().is_file() {
+                    if let Some(path_str) = dir_entry.path().to_str() {
+                        if fmt_file_helper(path_str)? {
+                            formatted_count += 1;
                         }
-
-                        String::from_utf8(buf)?
                     }
-                    "json" => {
-                        let v: serde_json::Value = serde_json::from_str(&code)?;
-                        serde_json::to_string_pretty(&v)?
-                    }
-                    "css" => {
-                        let stylesheet = StyleSheet::parse(
-                            filename,
-                            &code,
-                            ParserOptions::default(),
-                        )?;
-
-                        let result = stylesheet.to_css(PrinterOptions {
-                            minify: false,
-                            ..Default::default()
-                        });
-                        result.code
-                    }
-                    "html" | "htm" => {
-                        let dom: RcDom = parse_document(RcDom::default(), Default::default())
-                            .from_utf8()
-                            .read_from(&mut code.as_bytes())?;
-
-                        let mut bytes = Vec::new();
-                        serialize(&mut bytes, &SerializableHandle::from(dom.document), SerializeOpts::default())?;
-                        String::from_utf8(bytes)?
-                    }
-                    _ => code,
-                };
-
-                // เขียนไฟล์แบบ async
-                fs::write(path, formatted).await?;
-                println!("✅ Formatted: {}", filename);
+                }
             }
+            Err(e) => eprintln!("Error walking directory: {}", e),
         }
     }
 
+    println!("Formatting process completed. Formatted {} file(s).", formatted_count);
     Ok(())
+}
+
+fn is_skipped_dir(entry: &DirEntry) -> bool {
+    entry.file_name()
+         .to_str()
+         .map(|s| s == "node_modules" || s == "target" || s.starts_with('.'))
+         .unwrap_or(false)
+}
+
+// แก้ไข fmt_file_helper เล็กน้อยให้คืนค่า bool (true ถ้ามีการ format)
+fn fmt_file_helper(path_str: &str) -> Result<bool> {
+    let file_path = Path::new(path_str);
+    let original_content = match fs::read_to_string(file_path) {
+        Ok(content) => content,
+        Err(_) => return Ok(false),
+    };
+
+    let ext_option = file_path.extension().and_then(|s| s.to_str());
+    let ext_str = ext_option.unwrap_or("");
+
+    let formatted_content = match ext_str {
+        "js" | "ts" | "jsx" | "tsx" | "mjs" | "cjs" => {
+            let ts_config: TypeScriptConfiguration = TypeScriptConfigurationBuilder::new().build();
+            let options = FormatTextOptions {
+                path: file_path, text: original_content.clone(), extension: ext_option,
+                config: &ts_config, external_formatter: None,
+            };
+            dprint_plugin_typescript::format_text(options)?
+        }
+        "json" => {
+            let config = JsonConfigurationBuilder::new().build();
+            format_json_text(file_path, &original_content, &config)?
+        }
+        "css" | "scss" => {
+            let config: CssConfiguration = CssConfigurationBuilder::new().build();
+            Some(format_css_text(file_path, &original_content, &config)?)
+        }
+        _ => None,
+    };
+
+    if let Some(formatted) = formatted_content {
+        if formatted != original_content {
+            fs::write(file_path, formatted)?;
+            println!("Formatted: {}", path_str);
+            return Ok(true); // คืนค่า true เพราะมีการ format เกิดขึ้น
+        }
+    }
+    Ok(false) // คืนค่า false ถ้าไม่มีการ format
 }

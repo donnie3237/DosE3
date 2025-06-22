@@ -47,7 +47,9 @@ async fn main() {
         return;
     }
     Some(("fmt", _)) => {
-        fmt::format_code();
+        if let Err(e) = fmt::format_project_programmatically(".") {
+        eprintln!("An error occurred during the formatting process: {}", e);
+    }
         return;
     }
     Some(("init", _)) => {  
