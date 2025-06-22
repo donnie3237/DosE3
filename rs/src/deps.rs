@@ -1,7 +1,6 @@
 use std::collections::HashSet;
 use std::fs;
 use std::path::Path;
-
 use regex::Regex;
 use serde::Deserialize;
 use walkdir::WalkDir;
